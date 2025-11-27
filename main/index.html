@@ -1077,11 +1077,16 @@ const track = document.querySelector('.slider-track');
                     </div>
                   </div>
                   <div class="input2">
-                    <input type="text" class="styled-input" >
-            
+                    <input
+                      id="user-phone-input"
+                      type="text"
+                      class="styled-input"
+                      inputmode="tel"
+                      autocomplete="tel"
+                      aria-describedby="phone-error"
+                    >
                   </div>
-
-                  
+                  <div class="input-error" id="phone-error" data-visible="false" role="alert"></div>
                 </div>
               </div>
               <div class="iframe-html">
@@ -1727,6 +1732,110 @@ const track = document.querySelector('.slider-track');
           <div class="div41">Политика обработки персональных данных</div>
         </div>
     </div>
-  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const phoneInput = document.getElementById('user-phone-input');
+      const phoneError = document.getElementById('phone-error');
+      const submitTrigger = document.querySelector('.button7');
+
+      if (!phoneInput || !phoneError || !submitTrigger) {
+        return;
+      }
+
+      const phoneWrapper = phoneInput.closest('.input2');
+
+      const setErrorState = (message) => {
+        phoneError.textContent = message;
+        phoneError.setAttribute('data-visible', 'true');
+        phoneWrapper?.classList.add('input-error-state');
+      };
+
+      const clearErrorState = () => {
+        phoneError.textContent = '';
+        phoneError.setAttribute('data-visible', 'false');
+        phoneWrapper?.classList.remove('input-error-state');
+      };
+
+      const formatPhoneValue = (rawValue) => {
+        const template = '+7 (___) ___-__-__';
+        let digits = rawValue.replace(/\D/g, '');
+
+        if (digits.startsWith('8')) {
+          digits = '7' + digits.slice(1);
+        } else if (!digits.startsWith('7')) {
+          digits = '7' + digits;
+        }
+
+        digits = digits.slice(0, 11);
+        const subscriber = digits.slice(1);
+
+        let formatted = '';
+        let subscriberIndex = 0;
+
+        for (const char of template) {
+          if (char === '_') {
+            if (subscriberIndex < subscriber.length) {
+              formatted += subscriber[subscriberIndex];
+              subscriberIndex += 1;
+            } else {
+              formatted += '_';
+            }
+          } else {
+            formatted += char;
+          }
+        }
+
+        if (subscriber.length === 0) {
+          return '+7';
+        }
+
+        const firstPlaceholder = formatted.indexOf('_');
+        if (firstPlaceholder !== -1) {
+          formatted = formatted.slice(0, firstPlaceholder).trimEnd();
+          if (formatted.endsWith('(')) {
+            formatted = formatted.slice(0, -1).trimEnd();
+          }
+          if (formatted.endsWith('+7')) {
+            return '+7';
+          }
+        }
+
+        return formatted;
+      };
+
+      const handleInput = (event) => {
+        const formatted = formatPhoneValue(event.target.value);
+        event.target.value = formatted;
+        clearErrorState();
+      };
+
+      const isValidPhone = () => phoneInput.value.replace(/\D/g, '').length === 11;
+
+      const validatePhone = () => {
+        if (isValidPhone()) {
+          clearErrorState();
+          return true;
+        }
+        setErrorState('Введите номер в формате +7 (XXX) XXX-XX-XX');
+        return false;
+      };
+
+      phoneInput.addEventListener('focus', () => {
+        if (!phoneInput.value) {
+          phoneInput.value = '+7';
+        }
+      });
+
+      phoneInput.addEventListener('input', handleInput);
+      phoneInput.addEventListener('blur', validatePhone);
+
+      submitTrigger.addEventListener('click', (event) => {
+        if (!validatePhone()) {
+          event.preventDefault();
+          phoneInput.focus();
+        }
+      });
+    });
+  </script>
 </body>
 </html>
