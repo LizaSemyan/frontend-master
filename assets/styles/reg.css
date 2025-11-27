@@ -1,0 +1,749 @@
+
+/* Add font files for Font Awesome 5 Free */
+@font-face {
+  font-family: 'Font Awesome 5 Free';
+  src: url('fonts/font-awesome-5-free.woff2') format('woff2'),
+       url('fonts/font-awesome-5-free.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Add font files for Helvetica Neue */
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('fonts/helvetica-neue.woff2') format('woff2'),
+       url('fonts/helvetica-neue.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --font-family-inter: 'Inter', sans-serif;
+  --font-family-font-awesome-5-free: 'Font Awesome 5 Free', sans-serif;
+  --font-family-helvetica-neue: 'Helvetica Neue', sans-serif;
+  --bidexpert.ru/Alizarin Crimson: rgba(225, 43, 37, 1);
+  --bidexpert.ru/Azure Radiance: rgba(0, 170, 255, 1);
+  --bidexpert.ru/Azure Radiance: rgba(0, 170, 255, 1);
+  --bidexpert.ru/Black: rgba(0, 0, 0, 1);
+  --bidexpert.ru/Black 30%: rgba(0, 0, 0, 0.3);
+  --bidexpert.ru/Black 40%: rgba(0, 0, 0, 0.4);
+  --bidexpert.ru/Blaze Orange: rgba(255, 103, 0, 1);
+  --bidexpert.ru/Blue Ribbon: rgba(4, 80, 242, 1);
+  --bidexpert.ru/Boulder: rgba(118, 118, 118, 1);
+  --bidexpert.ru/Boulder: rgba(118, 118, 118, 1);
+  --bidexpert.ru/Chateau Green: rgba(76, 175, 80, 1);
+  --bidexpert.ru/Dusty Gray: rgba(153, 153, 153, 1);
+  --bidexpert.ru/Gray: rgba(128, 128, 128, 1);
+  --bidexpert.ru/Gray: rgba(140, 140, 140, 1);
+  --bidexpert.ru/Gray: rgba(130, 130, 130, 1);
+  --bidexpert.ru/Malachite: rgba(4, 224, 97, 1);
+  --bidexpert.ru/Medium Purple: rgba(150, 94, 235, 1);
+  --bidexpert.ru/Mercury: rgba(229, 229, 229, 1);
+  --bidexpert.ru/Mine Shaft: rgba(51, 51, 51, 1);
+  --bidexpert.ru/Mine Shaft: rgba(34, 34, 34, 1);
+  --bidexpert.ru/Mine Shaft: rgba(40, 40, 40, 1);
+  --bidexpert.ru/Nobel: rgba(181, 181, 181, 1);
+  --bidexpert.ru/Outer Space: rgba(38, 50, 56, 1);
+  --bidexpert.ru/Persian Green: rgba(0, 168, 132, 1);
+  --bidexpert.ru/Picton Blue: rgba(55, 175, 226, 1);
+  --bidexpert.ru/Silver: rgba(204, 204, 204, 1);
+  --bidexpert.ru/Radical Red: rgba(255, 64, 83, 1);
+  --bidexpert.ru/Tundora: rgba(76, 76, 76, 1);
+  --bidexpert.ru/White: rgba(255, 255, 255, 1);
+  --bidexpert.ru/White 10%: rgba(255, 255, 255, 0.1);
+  --bidexpert.ru/White 70%: rgba(255, 255, 255, 0.7);
+  --bidexpert.ru/White 80%: rgba(255, 255, 255, 0.8);
+  --bidexpert.ru/Wild Sand: rgba(247, 247, 247, 1);
+  --text-rgb-34-34-34: rgba(34, 34, 34, 1);
+  --text-black: rgba(0, 0, 0, 1);
+  --text-rgb-130-130-130: rgba(130, 130, 130, 1);
+  --text-white: rgba(255, 255, 255, 1);
+  --text-rgb-40-40-40: rgba(40, 40, 40, 1);
+}
+
+.text-rgb-34-34-34 {
+  color: var(--text-rgb-34-34-34);
+}
+
+.text-black {
+  color: var(--text-black);
+}
+
+.text-rgb-130-130-130 {
+  color: var(--text-rgb-130-130-130);
+}
+
+.text-white {
+  color: var(--text-white);
+}
+
+.text-rgb-40-40-40 {
+  color: var(--text-rgb-40-40-40);
+}
+
+
+/* CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.text-5 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  font-family: var(--font-family-inter);
+  font-weight: 500;
+  font-size: 48px;
+  text-decoration: none;
+  text-transform: none;
+  color: var(--text-rgb-34-34-34);
+}
+
+.frame-35-4 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 0px;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+.text-10 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  font-family: var(--font-family-inter);
+  font-weight: 500;
+  font-size: 24px;
+  text-decoration: none;
+  text-transform: none;
+  color: var(--text-black);
+}
+
+.label-9 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0px;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+.input-11 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 20px 8px 20px;
+  flex-grow: 0;
+  flex-shrink: 1;
+  width: 100%;
+  background-color: var(--bidexpert.ru/White);
+  border: 1px solid var(--bidexpert.ru/Silver);
+  border-radius: 26px;
+}
+
+.input-8 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 0px;
+  flex-grow: 0;
+  flex-shrink: 1;
+  width: 100%;
+}
+
+.text-14 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  font-family: var(--font-family-inter);
+  font-weight: 500;
+  font-size: 24px;
+  text-decoration: none;
+  text-transform: none;
+  color: var(--text-black);
+}
+
+.label-13 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0px;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+.vector-18 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  border: 2px solid rgba(118, 118, 118, 1);
+  border: none;
+  outline: none;
+}
+
+.vector-19 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  border: 2px solid rgba(118, 118, 118, 1);
+  border: none;
+  outline: none;
+}
+
+.group-17 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+.icon-16 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+.input-15 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 20px 8px 20px;
+  flex-grow: 0;
+  flex-shrink: 1;
+  width: 100%;
+  background-color: var(--bidexpert.ru/White);
+  border: 1px solid var(--bidexpert.ru/Silver);
+  border-radius: 26px;
+}
+
+.input-12 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 0px;
+  flex-grow: 0;
+  flex-shrink: 1;
+  width: 100%;
+}
+
+.text-21 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  font-family: var(--font-family-inter);
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 16px;
+  text-decoration: none;
+  text-transform: none;
+  color: var(--text-rgb-130-130-130);
+}
+
+.frame-100-20 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 0px 6px 6px 6px;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  border-bottom: 1px solid rgba(130, 130, 130, 1);
+}
+
+.frame-33-7 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 28px;
+  padding: 0px;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+.text-23 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  font-family: var(--font-family-inter);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 20px;
+  text-decoration: none;
+  text-transform: none;
+  color: var(--text-white);
+}
+
+.button-22 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 24px 16px 24px;
+  flex-grow: 0;
+  flex-shrink: 1;
+  width: 100%;
+  background-color: var(--bidexpert.ru/Mine Shaft);
+  border-radius: 30px;
+}
+
+.frame-34-6 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 0px;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+.frame-36-3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 48px;
+  padding: 40px;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  box-shadow: 0px 4px 40px 0px rgba(0,0,0,0.5);
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 50px;
+}
+
+.text-25 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  font-family: var(--font-family-inter);
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 35px;
+  text-decoration: none;
+  text-transform: none;
+  color: var(--text-rgb-34-34-34);
+}
+
+.line-1-26 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  border: 1px solid var(--bidexpert.ru/Mine Shaft);
+  border: none;
+  outline: none;
+}
+
+.frame-35-24 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 0px;
+  flex-grow: 0;
+  flex-shrink: 1;
+  width: 100%;
+}
+
+.frame-108-2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 40px;
+  padding: 0px;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+.vector-34 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  fill: rgba(0, 0, 0, 1);
+  border: none;
+  outline: none;
+}
+
+.svgid_2_-33 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+.vector-36 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  fill: rgba(255, 103, 0, 1);
+  border: none;
+  outline: none;
+}
+
+.vector-37 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  fill: rgba(255, 103, 0, 1);
+  border: none;
+  outline: none;
+}
+
+.vector-38 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  fill: rgba(255, 103, 0, 1);
+  border: none;
+  outline: none;
+}
+
+.vector-39 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  fill: rgba(255, 103, 0, 1);
+  border: none;
+  outline: none;
+}
+
+.vector-40 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  fill: rgba(51, 51, 51, 1);
+  border: none;
+  outline: none;
+}
+
+.vector-41 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  fill: rgba(51, 51, 51, 1);
+  border: none;
+  outline: none;
+}
+
+.group-35 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+.clip-path-group-32 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+.group-31 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+.logo_o-svg-30 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+.logo_o-svg-fill-29 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 0.008821655996143818px 0px 0.008821655996143818px;
+  flex-grow: 0;
+  flex-shrink: 1;
+  width: 100%;
+}
+
+.link-logo_o-svg-28 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0px;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  max-width: 40px;
+  max-height: 31.229999542236328px;
+}
+
+.text-45 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  font-family: var(--font-family-inter);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  text-decoration: none;
+  text-transform: none;
+  color: var(--text-rgb-40-40-40);
+}
+
+.tab-44 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 6px;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+.text-47 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  font-family: var(--font-family-inter);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  text-decoration: none;
+  text-transform: none;
+  color: var(--text-rgb-40-40-40);
+}
+
+.tab-46 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 6px;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+.text-49 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  font-family: var(--font-family-inter);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  text-decoration: none;
+  text-transform: none;
+  color: var(--text-rgb-40-40-40);
+}
+
+.tab-48 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 6px;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+.text-51 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  font-family: var(--font-family-inter);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  text-decoration: none;
+  text-transform: none;
+  color: var(--text-rgb-40-40-40);
+}
+
+.tab-50 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 6px;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+.text-53 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  font-family: var(--font-family-inter);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  text-decoration: none;
+  text-transform: none;
+  color: var(--text-rgb-40-40-40);
+}
+
+.tab-52 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 6px;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+.list-43 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 0px;
+  flex-grow: 0;
+  flex-shrink: 1;
+  width: 100%;
+}
+
+.nav-42 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0px;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+.text-56 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  font-family: var(--font-family-inter);
+  font-weight: 500;
+  font-size: 20px;
+  text-decoration: none;
+  text-transform: none;
+  color: var(--text-rgb-40-40-40);
+}
+
+.button-55 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 8px 16px 8px 16px;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  border: 1px solid var(--bidexpert.ru/Mine Shaft);
+  border-radius: 24px;
+}
+
+.text-58 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  font-family: var(--font-family-inter);
+  font-weight: 500;
+  font-size: 20px;
+  text-decoration: none;
+  text-transform: none;
+  color: var(--text-white);
+}
+
+.button-57 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 8px 16px 8px 16px;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  background-color: var(--bidexpert.ru/Blaze Orange);
+  border-radius: 24px;
+}
+
+.frame-9-54 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+  padding: 0px;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+.header-27 {
+  flex-grow: 0;
+  flex-shrink: 1;
+  width: 95.625%;
+  backdrop-filter: blur(15px);
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 46px;
+}
+
+.-1 {
+@media (max-width: 1440px) {
+  .-1 {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .-1 {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  background-color: rgba(235, 235, 235, 1);
+}
+
+
+.reg_page{
+  padding-top: 100px;
+}
