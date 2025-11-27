@@ -1422,73 +1422,150 @@
 
 
       <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const carousel = document.querySelector('.carousel');
-            const carouselItems = document.querySelectorAll('.carousel-item');
-            const prevBtn = document.querySelector('.prev-btn');
-            const nextBtn = document.querySelector('.next-btn');
-            const indicators = document.querySelectorAll('.item-indicator');
-            
-            let currentSlide = 0;
-            const itemsPerSlide = 1;
-            const slideCount = Math.ceil(carouselItems.length / itemsPerSlide);
-            
-            // Update carousel position
-            function updateCarousel() {
-                const translateXValue = -currentSlide * (100 / itemsPerSlide);
-                carousel.style.transform = `translateX(${translateXValue}%)`;
-                
-                // Update indicators
-                indicators.forEach((indicator, index) => {
-                    if (index === currentSlide) {
-                        indicator.classList.add('active');
-                    } else {
-                        indicator.classList.remove('active');
-                    }
-                });
+        document.addEventListener('DOMContentLoaded', () => {
+          const carouselTrack = document.querySelector('.carousel');
+          const carouselContainer = document.querySelector('.carousel-container');
+          const prevBtn = document.querySelector('.prev-btn');
+          const nextBtn = document.querySelector('.next-btn');
+
+          if (!carouselTrack || !carouselContainer || !prevBtn || !nextBtn) {
+            return;
+          }
+
+          const templateItems = Array.from(carouselTrack.children).map((item) =>
+            item.cloneNode(true)
+          );
+          const BASE_COUNT = templateItems.length;
+
+          if (!BASE_COUNT) {
+            return;
+          }
+
+          let itemsPerView = 1;
+          let cloneCount = 0;
+          let itemWidth = 0;
+          let currentIndex = 0;
+          let isTransitionLocked = false;
+          let resizeTimer;
+          let touchStartX = 0;
+          let touchDeltaX = 0;
+          let isTouchActive = false;
+
+          const determineItemsPerView = () => {
+            if (window.innerWidth >= 1200) return 4;
+            if (window.innerWidth >= 576) return 2;
+            return 1;
+          };
+
+          const updateItemWidth = () => {
+            const sample = carouselTrack.querySelector('.carousel-item');
+            if (!sample) {
+              itemWidth = 0;
+              return;
             }
-            
-            // Next slide
-            function nextSlide() {
-                currentSlide = (currentSlide + 1) % slideCount;
-                updateCarousel();
+            const rect = sample.getBoundingClientRect();
+            const style = window.getComputedStyle(sample);
+            const marginLeft = parseFloat(style.marginLeft) || 0;
+            const marginRight = parseFloat(style.marginRight) || 0;
+            itemWidth = rect.width + marginLeft + marginRight;
+          };
+
+          const setPosition = (animate = true) => {
+            if (!itemWidth) return;
+            carouselTrack.style.transition = animate ? 'transform 0.45s ease' : 'none';
+            carouselTrack.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+          };
+
+          const rebuildCarousel = () => {
+            itemsPerView = determineItemsPerView();
+            cloneCount = Math.min(itemsPerView, BASE_COUNT);
+            isTransitionLocked = false;
+
+            carouselTrack.innerHTML = '';
+
+            templateItems.forEach((item) => carouselTrack.appendChild(item.cloneNode(true)));
+
+            templateItems
+              .slice(-cloneCount)
+              .reverse()
+              .forEach((item) =>
+                carouselTrack.insertBefore(item.cloneNode(true), carouselTrack.firstChild)
+              );
+
+            templateItems
+              .slice(0, cloneCount)
+              .forEach((item) => carouselTrack.appendChild(item.cloneNode(true)));
+
+            currentIndex = cloneCount;
+            updateItemWidth();
+            requestAnimationFrame(() => setPosition(false));
+          };
+
+          const move = (direction) => {
+            if (isTransitionLocked || !itemWidth) return;
+            isTransitionLocked = true;
+            currentIndex += direction === 'next' ? 1 : -1;
+            setPosition(true);
+          };
+
+          carouselTrack.addEventListener('transitionend', () => {
+            isTransitionLocked = false;
+            if (currentIndex >= cloneCount + BASE_COUNT) {
+              currentIndex = cloneCount;
+              setPosition(false);
+            } else if (currentIndex < cloneCount) {
+              currentIndex = cloneCount + BASE_COUNT - 1;
+              setPosition(false);
             }
-            
-            // Previous slide
-            function prevSlide() {
-                currentSlide = (currentSlide - 1 + slideCount) % slideCount;
-                updateCarousel();
+          });
+
+          nextBtn.addEventListener('click', () => move('next'));
+          prevBtn.addEventListener('click', () => move('prev'));
+
+          document.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowRight') move('next');
+            if (event.key === 'ArrowLeft') move('prev');
+          });
+
+          const onTouchStart = (event) => {
+            if (!event.touches || event.touches.length !== 1) return;
+            touchStartX = event.touches[0].clientX;
+            touchDeltaX = 0;
+            isTouchActive = true;
+          };
+
+          const onTouchMove = (event) => {
+            if (!isTouchActive || !event.touches || event.touches.length !== 1) return;
+            touchDeltaX = event.touches[0].clientX - touchStartX;
+          };
+
+          const onTouchEnd = () => {
+            if (!isTouchActive) return;
+            const THRESHOLD = 40;
+            if (touchDeltaX > THRESHOLD) {
+              move('prev');
+            } else if (touchDeltaX < -THRESHOLD) {
+              move('next');
             }
-            
-            // Go to specific slide
-            function goToSlide(index) {
-                currentSlide = index;
-                updateCarousel();
-            }
-            
-            // Event listeners
-            nextBtn.addEventListener('click', nextSlide);
-            prevBtn.addEventListener('click', prevSlide);
-            
-            indicators.forEach(indicator => {
-                indicator.addEventListener('click', function() {
-                    const index = parseInt(this.getAttribute('data-index'));
-                    goToSlide(index);
-                });
-            });
-            
-           
-            
-            // Keyboard navigation
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'ArrowRight') {
-                    nextSlide();
-                } else if (e.key === 'ArrowLeft') {
-                    prevSlide();
-                }
-            });
+            isTouchActive = false;
+            touchStartX = 0;
+            touchDeltaX = 0;
+          };
+
+          carouselContainer.addEventListener('touchstart', onTouchStart, { passive: true });
+          carouselContainer.addEventListener('touchmove', onTouchMove, { passive: true });
+          carouselContainer.addEventListener('touchend', onTouchEnd);
+
+          window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+              rebuildCarousel();
+            }, 200);
+          });
+
+          rebuildCarousel();
         });
-    </script>
+      </script>
 
 
 
