@@ -966,69 +966,147 @@
 
 
 <script>
-const track = document.querySelector('.slider-track');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        const positionDisplay = document.getElementById('position');
+  document.addEventListener('DOMContentLoaded', () => {
+    const sliderTrack = document.querySelector('.slider-track');
+    const sliderContainer = document.querySelector('.slider-container');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
 
-        let currentPosition = 0;
-        const slideCount = 5;
-        const slideWidth = 100; // Percentage width per slide
-        let prevPressCount = 0; // Counter for prev button presses
-        let nextPressCount = 0;
-        function updateSlider(direction) {
-            // Reset transition
-            track.style.transition = 'transform 0.3s ease';
-            
-            if (direction === 'next') {
-                // Normal next behavior
-                currentPosition = (currentPosition + 1) % slideCount;
-                prevPressCount = 0; // Reset prev counter
-                nextPressCount++;
-                if (nextPressCount === 3) {
-                        currentPosition = 0;
-                        nextPressCount = 0;
-                    }
-            } else {
-                // Special prev behavior
-                if (currentPosition === 0) {
-                    // At position 0, prev works like next
-                    currentPosition = (currentPosition + 1) % slideCount;
-                    prevPressCount++;
-                    
-                    // After 2 presses, revert to position 0
-                    
-                } else {
-                    // Normal prev behavior for other positions
-                    currentPosition = (currentPosition - 1 + slideCount) % slideCount;
-                    prevPressCount = 0; // Reset counter
-                }
-            }
-            
-            // Apply the transformation
-            track.style.transform = `translateX(-${currentPosition * slideWidth}%)`;
-            positionDisplay.textContent = currentPosition + 1;
-            
-            // For infinite looping effect
-            if (currentPosition === 0) {
-                setTimeout(() => {
-                    track.style.transition = 'none';
-                    track.style.transform = 'translateX(0)';
-                    setTimeout(() => {
-                        track.style.transition = 'transform 0.3s ease';
-                    }, 10);
-                }, 300);
-            }
-        }
+    if (!sliderTrack || !sliderContainer || !prevBtn || !nextBtn) {
+      return;
+    }
 
-        nextBtn.addEventListener('click', () => updateSlider('next'));
-        prevBtn.addEventListener('click', () => updateSlider('prev'));
+    const templateSlides = Array.from(sliderTrack.children).map((slide) =>
+      slide.cloneNode(true)
+    );
 
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight') updateSlider('next');
-            if (e.key === 'ArrowLeft') updateSlider('prev');
-        });
+    const BASE_COUNT = templateSlides.length;
+    if (!BASE_COUNT) {
+      return;
+    }
+
+    let cloneCount = 1;
+    let slideWidth = 0;
+    let currentIndex = 0;
+    let isTransitionLocked = false;
+    let resizeTimer;
+    let touchStartX = 0;
+    let touchDeltaX = 0;
+    let isTouchActive = false;
+
+    const determineVisibleCount = () => {
+      if (window.innerWidth >= 1200) return 6;
+      if (window.innerWidth >= 576) return 3;
+      return 1;
+    };
+
+    const readGap = () => {
+      const styles = window.getComputedStyle(sliderTrack);
+      return (
+        parseFloat(styles.getPropertyValue('column-gap') || styles.getPropertyValue('gap') || '0') ||
+        0
+      );
+    };
+
+    const updateSlideWidth = () => {
+      const sample = sliderTrack.querySelector('.slide');
+      if (!sample) {
+        slideWidth = 0;
+        return;
+      }
+      slideWidth = sample.getBoundingClientRect().width + readGap();
+    };
+
+    const setPosition = (animate = true) => {
+      sliderTrack.style.transition = animate ? 'transform 0.4s ease' : 'none';
+      sliderTrack.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    };
+
+    const rebuildSlider = () => {
+      cloneCount = Math.min(determineVisibleCount(), BASE_COUNT);
+      sliderTrack.innerHTML = '';
+
+      // append original slides
+      templateSlides.forEach((slide) => sliderTrack.appendChild(slide.cloneNode(true)));
+
+      // prepend clones from the end
+      templateSlides
+        .slice(-cloneCount)
+        .reverse()
+        .forEach((slide) => sliderTrack.insertBefore(slide.cloneNode(true), sliderTrack.firstChild));
+
+      // append clones from the start
+      templateSlides.slice(0, cloneCount).forEach((slide) => sliderTrack.appendChild(slide.cloneNode(true)));
+
+      currentIndex = cloneCount;
+      updateSlideWidth();
+      requestAnimationFrame(() => setPosition(false));
+    };
+
+    const move = (direction) => {
+      if (isTransitionLocked || !slideWidth) return;
+      isTransitionLocked = true;
+      currentIndex += direction === 'next' ? 1 : -1;
+      setPosition(true);
+    };
+
+    sliderTrack.addEventListener('transitionend', () => {
+      isTransitionLocked = false;
+      if (currentIndex >= cloneCount + BASE_COUNT) {
+        currentIndex = cloneCount;
+        setPosition(false);
+      } else if (currentIndex < cloneCount) {
+        currentIndex = cloneCount + BASE_COUNT - 1;
+        setPosition(false);
+      }
+    });
+
+    nextBtn.addEventListener('click', () => move('next'));
+    prevBtn.addEventListener('click', () => move('prev'));
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowRight') move('next');
+      if (event.key === 'ArrowLeft') move('prev');
+    });
+
+    const onTouchStart = (event) => {
+      if (!event.touches || event.touches.length !== 1) return;
+      touchStartX = event.touches[0].clientX;
+      touchDeltaX = 0;
+      isTouchActive = true;
+    };
+
+    const onTouchMove = (event) => {
+      if (!isTouchActive || !event.touches || event.touches.length !== 1) return;
+      touchDeltaX = event.touches[0].clientX - touchStartX;
+    };
+
+    const onTouchEnd = () => {
+      if (!isTouchActive) return;
+      const THRESHOLD = 40;
+      if (touchDeltaX > THRESHOLD) {
+        move('prev');
+      } else if (touchDeltaX < -THRESHOLD) {
+        move('next');
+      }
+      isTouchActive = false;
+      touchStartX = 0;
+      touchDeltaX = 0;
+    };
+
+    sliderContainer.addEventListener('touchstart', onTouchStart, { passive: true });
+    sliderContainer.addEventListener('touchmove', onTouchMove, { passive: true });
+    sliderContainer.addEventListener('touchend', onTouchEnd);
+
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        rebuildSlider();
+      }, 200);
+    });
+
+    rebuildSlider();
+  });
 </script>
 
 
