@@ -4385,6 +4385,16 @@
     position: relative;
     transition: transform 0.3s ease;
   }
+  .small-link a {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+  }
+
+  .small-link a:hover {
+    opacity: 0.8;
+  }
   .to-publications {
     width: fit-content;
     margin-left: auto;
