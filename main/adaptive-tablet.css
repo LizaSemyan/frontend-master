@@ -101,14 +101,18 @@
     justify-content: center;
     flex-shrink: 0;
     position: relative;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
   }
 
   .button:hover {
     background: var(--color-grey-18, #222222);
+    transform: scale(1.05);
   }
 
   .button7:hover {
     background: var(--color-grey-18, #222222);
+    transform: scale(1.05);
   }
 
   .button5:hover {
@@ -148,6 +152,26 @@
     left: 20px;
     top: 425px;
   }
+
+  .image-link {
+    display: inline-block;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+  }
+
+  .image-link:hover {
+    transform: scale(1.1);
+  }
+
+  .button2 {
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    cursor: pointer;
+  }
+
+  .button2:hover {
+    transform: scale(1.1);
+  }
+
   .form {
     display: flex;
     flex-direction: row;
@@ -426,7 +450,7 @@
     position: relative;
   }
   ._8-495-492-57-47 {
-    color: var(--color-grey-30, #4c4c4c);
+    color: var(--color-black-solid, #000000);
     text-align: left;
     font-family: var(--font-family-font-1, "Inter-Medium", sans-serif);
     font-size: 70%;
@@ -437,7 +461,7 @@
     justify-content: flex-start;
   }
   .info-bidexpert-ru {
-    color: var(--color-grey-30, #4c4c4c);
+    color: var(--color-black-solid, #000000);
     text-align: left;
     font-family: var(--font-family-font-1, "Inter-Medium", sans-serif);
     font-size: 70%;
@@ -1537,7 +1561,15 @@
     justify-content: center;
     flex-shrink: 0;
     position: relative;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
   }
+
+  .link:hover {
+    background: #e55a00;
+    transform: translateY(-2px);
+  }
+
   .button4 {
     background: #ffd1b2;
     border-radius: 30px;
@@ -1549,6 +1581,13 @@
     justify-content: center;
     flex-shrink: 0;
     position: relative;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+  }
+
+  .button4:hover {
+    background: #ffb88a;
+    transform: translateY(-2px);
   }
   .div24 {
     color: #fff;
@@ -2475,6 +2514,8 @@
     align-self: stretch;
     flex-shrink: 0;
     position: relative;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
   }
   .frame-290 {
     padding: 20px 0px 80px 0px;
@@ -3942,7 +3983,14 @@
     justify-content: flex-start;
     flex-shrink: 0;
     position: relative;
+    transition: all 0.3s ease;
+    border-radius: 8px;
   }
+
+  .tab:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
   .div42 {
     color: var(--color-grey-16, #282828);
     text-align: left;
@@ -3954,6 +4002,11 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    transition: color 0.3s ease;
+  }
+
+  .tab:hover .div42 {
+    color: var(--color-orange-50, #ff6700);
   }
   .frame-9 {
     display: flex;
@@ -3978,8 +4031,13 @@
     position: relative;
   }
 
+  .button10 {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
   .button10:hover {
     background-color: #cccccc;
+    transform: translateY(-2px);
   }
 
   .div43 {
@@ -4005,6 +4063,12 @@
     justify-content: flex-start;
     flex-shrink: 0;
     position: relative;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .button11:hover {
+    background: #e55a00;
+    transform: translateY(-2px);
   }
 
   .main-contacts-icons {
@@ -4193,6 +4257,11 @@
     position: relative;
     display: inline-block;
   }
+  .info-bidexpert-ru a,
+  ._8-495-492-57-47 a {
+    color: inherit;
+    text-decoration: none;
+  }
 
   .dropdown-content {
     display: none;
@@ -4253,6 +4322,14 @@
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .row-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
   }
 
   .carousel-container {
@@ -4342,6 +4419,8 @@
   }
 
   .carousel-btn {
+    background: transparent;
+    border: none;
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -4349,12 +4428,29 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-
-    font-weight: bold;
+    transition: transform 0.3s ease;
+    overflow: hidden;
+    flex-shrink: 0;
   }
 
   .carousel-btn:hover {
     transform: scale(1.1);
+  }
+
+  .carousel-btn .button8,
+  .carousel-btn .button9 {
+    border-radius: 0;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0;
+  }
+
+  .carousel-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
 
   .slider-container {
