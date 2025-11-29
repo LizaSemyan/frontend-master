@@ -2608,6 +2608,7 @@
     overflow: visible;
   }
   .frame-100 {
+    margin-top: 50px;
     display: flex;
     flex-direction: row;
     gap: 4px;
