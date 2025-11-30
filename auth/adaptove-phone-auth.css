@@ -28,7 +28,7 @@
 
     border-image: transparent;
     border-image-slice: 1;
-    padding: 40px;
+    padding: 30px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -82,6 +82,7 @@
     justify-content: flex-start;
     align-self: stretch;
     flex-shrink: 0;
+    width: 100%;
     position: relative;
   }
   .input {
@@ -91,7 +92,7 @@
     align-items: flex-start;
     justify-content: flex-start;
     flex-shrink: 0;
-    width: 95%;
+    width: 100%;
     height: 50px;
     position: relative;
   }
@@ -205,13 +206,23 @@
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    width: 100%;
     position: relative;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+  }
+  .button a {
+    font-size: 12px;
+  }
+  .button:hover {
+    background: var(--color-grey-18, #222222);
+    transform: scale(1.05);
   }
   .div3 {
     color: var(--color-white-solid, #ffffff);
     text-align: right;
     font-family: "Inter-Medium", sans-serif;
-    font-size: 20px;
+    font-size: 12px;
     line-height: var(--font-size-20, 20px);
     font-weight: 500;
     position: relative;
@@ -223,6 +234,7 @@
     display: flex;
     flex-direction: row;
     gap: 12px;
+    margin-top: 20px;
     align-items: center;
     justify-content: center;
     align-self: stretch;
@@ -244,57 +256,9 @@
   .line-1 {
     flex-shrink: 0;
     width: 21px;
-    height: 0px;
+    height: 5px;
     position: relative;
     overflow: visible;
-  }
-  .header {
-    background: rgba(255, 255, 255, 0.6);
-    border-radius: 46px;
-    border-width: 1px;
-
-    border-image: transparent;
-    border-image-slice: 1;
-    width: 1836px;
-    height: 89px;
-    position: fixed;
-    left: 42px;
-    top: 42px;
-    backdrop-filter: blur(7.5px);
-  }
-  .link-logo-o-svg {
-    display: flex;
-    flex-direction: column;
-    gap: 0px;
-    align-items: flex-start;
-    justify-content: flex-start;
-    max-width: var(--width-40, 40px);
-    max-height: var(--height-3123, 31.23px);
-    position: absolute;
-    left: 50px;
-    top: 50%;
-    translate: 0 -50%;
-    overflow: hidden;
-  }
-  .logo-o-svg-fill {
-    padding: 0px 0.01px 0px 0.01px;
-    display: flex;
-    flex-direction: column;
-    gap: 0px;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    width: 40px;
-    height: 31.23px;
-    position: relative;
-    overflow: hidden;
-  }
-  .logo-o-svg {
-    flex-shrink: 0;
-    width: 39.98px;
-    height: 31.23px;
-    position: relative;
-    overflow: hidden;
   }
   .group2 {
     height: auto;
@@ -302,42 +266,6 @@
     left: 0px;
     top: 0.07px;
     overflow: visible;
-  }
-  .nav {
-    border-style: solid;
-    border-color: transparent;
-    border-width: 0px 0px 0px 1px;
-    display: flex;
-    flex-direction: column;
-    gap: 0px;
-    align-items: flex-start;
-    justify-content: flex-start;
-    position: absolute;
-    left: 694px;
-    top: 50%;
-    translate: 0 -50%;
-    left: 50%;
-    translate: -50% !important;
-  }
-  .list {
-    display: flex;
-    flex-direction: row;
-    gap: var(--item-spacing-15, 15px);
-    align-items: flex-start;
-    justify-content: flex-start;
-    align-self: stretch;
-    flex-shrink: 0;
-    position: relative;
-  }
-  .tab {
-    padding: 6px;
-    display: flex;
-    flex-direction: column;
-    gap: 0px;
-    align-items: flex-start;
-    justify-content: flex-start;
-    flex-shrink: 0;
-    position: relative;
   }
   .div4 {
     color: var(--color-grey-16, #282828);
@@ -350,16 +278,6 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-  }
-  .frame-9 {
-    display: flex;
-    flex-direction: row;
-    gap: 16px;
-    align-items: center;
-    justify-content: flex-start;
-    position: absolute;
-    right: 50px;
-    top: calc(50% - 19px);
   }
   .button2 {
     border-radius: 24px;
@@ -398,20 +316,6 @@
     flex-shrink: 0;
     position: relative;
   }
-
-  .header {
-    background: rgba(255, 255, 255, 0.6);
-    border-radius: 46px;
-    border-width: 1px;
-    border-image-slice: 1;
-    width: 92%;
-    height: 89px;
-    position: fixed;
-    left: 25px;
-    top: 42px;
-    backdrop-filter: blur(7.5px);
-  }
-
   .frame-101 {
     padding: 0px 45px 0px 45px;
     display: flex;
@@ -424,43 +328,6 @@
     top: 60px;
     z-index: 1000000;
   }
-
-  .nav {
-    visibility: hidden;
-    border-style: solid;
-    border-color: transparent;
-    border-width: 0px 0px 0px 1px;
-    display: flex;
-    flex-direction: column;
-    gap: 0px;
-    align-items: flex-start;
-    justify-content: flex-start;
-    position: absolute;
-    left: 15%;
-    top: 50%;
-    translate: 0 -50%;
-  }
-
-  .list {
-    display: flex;
-    flex-direction: row;
-    gap: var(--item-spacing-15, 15px);
-    align-items: flex-start;
-    justify-content: flex-start;
-    align-self: stretch;
-    flex-shrink: 0;
-    position: relative;
-  }
-  .tab {
-    padding: 6px;
-    display: flex;
-    flex-direction: column;
-    gap: 0px;
-    align-items: flex-start;
-    justify-content: flex-start;
-    flex-shrink: 0;
-    position: relative;
-  }
   .div42 {
     color: var(--color-grey-16, #282828);
     text-align: left;
@@ -472,85 +339,6 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-  }
-  .frame-9 {
-    display: flex;
-    flex-direction: row;
-    gap: 16px;
-    align-items: center;
-    justify-content: flex-start;
-    position: absolute;
-    right: 15px;
-    top: calc(50% - 19px);
-  }
-  .button10 {
-    visibility: hidden;
-    border-radius: 24px;
-    border-style: solid;
-    border-color: var(--color-grey-16, #282828);
-    border-width: 1px;
-    padding: 8px 16px 8px 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 0px;
-    align-items: flex-start;
-    justify-content: flex-start;
-    flex-shrink: 0;
-    position: relative;
-  }
-
-  .button10:hover {
-    background-color: #cccccc;
-  }
-
-  .nav {
-    display: none;
-  }
-  .header {
-    background: rgba(255, 255, 255, 0.6);
-    border-radius: 46px;
-    border-width: 1px;
-    border-image-slice: 1;
-    width: 95%;
-    height: 50px;
-    position: fixed;
-    left: 1%;
-    top: 5px;
-    backdrop-filter: blur(7.5px);
-  }
-  .link-logo-o-svg {
-    display: flex;
-    flex-direction: column;
-    gap: 0px;
-    align-items: flex-start;
-    justify-content: flex-start;
-    max-width: var(--width-40, 40px);
-    max-height: var(--height-3123, 31.23px);
-    position: absolute;
-    left: 18px;
-    top: 50%;
-    translate: 0 -50%;
-    overflow: hidden;
-  }
-  .logo-o-svg-fill {
-    padding: 0px 0.01px 0px 0.01px;
-    display: flex;
-    flex-direction: column;
-    gap: 0px;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    width: 40px;
-    height: 31.23px;
-    position: relative;
-    overflow: hidden;
-  }
-  .logo-o-svg {
-    flex-shrink: 0;
-    width: 39.98px;
-    height: 31.23px;
-    position: relative;
-    overflow: hidden;
   }
   .group18 {
     height: auto;
@@ -559,41 +347,6 @@
     top: 0.07px;
     overflow: visible;
   }
-  .nav {
-    visibility: hidden;
-    border-style: solid;
-    border-color: transparent;
-    border-width: 0px 0px 0px 1px;
-    display: flex;
-    flex-direction: column;
-    gap: 0px;
-    align-items: flex-start;
-    justify-content: flex-start;
-    position: absolute;
-    left: 15%;
-    top: 50%;
-    translate: 0 -50%;
-  }
-  .list {
-    display: flex;
-    flex-direction: row;
-    gap: var(--item-spacing-15, 15px);
-    align-items: flex-start;
-    justify-content: flex-start;
-    align-self: stretch;
-    flex-shrink: 0;
-    position: relative;
-  }
-  .tab {
-    padding: 6px;
-    display: flex;
-    flex-direction: column;
-    gap: 0px;
-    align-items: flex-start;
-    justify-content: flex-start;
-    flex-shrink: 0;
-    position: relative;
-  }
   .div42 {
     color: var(--color-grey-16, #282828);
     text-align: left;
@@ -606,17 +359,6 @@
     align-items: center;
     justify-content: flex-start;
   }
-  .frame-9 {
-    display: flex;
-    flex-direction: row;
-    gap: 16px;
-    align-items: center;
-    justify-content: flex-start;
-    position: absolute;
-    right: 3%;
-    top: 12px;
-  }
-
   .frame-108 {
     display: flex;
     flex-direction: column;
@@ -624,7 +366,7 @@
     align-items: center;
     justify-content: flex-start;
     position: relative;
-    width: 95%;
+    width: 90%;
   }
   .frame-92 {
     border-radius: 30px;
@@ -651,21 +393,6 @@
     justify-content: center;
     flex-shrink: 0;
     position: relative;
-  }
-  .nav {
-    visibility: hidden;
-    border-style: solid;
-    border-color: transparent;
-    border-width: 0px 0px 0px 1px;
-    display: flex;
-    flex-direction: column;
-    gap: 0px;
-    align-items: flex-start;
-    justify-content: flex-start;
-    position: absolute;
-    left: 15%;
-    top: 50%;
-    translate: 0 -50%;
   }
   .frame-292 {
     gap: 56px;
