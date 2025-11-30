@@ -484,24 +484,6 @@
     flex-shrink: 0;
     position: relative;
   }
-  .symbol4 {
-    color: var(--color-orange-50, #ff6700);
-    text-align: left;
-    font-family: var(
-      --bidexpertru-semantic-link-font-family,
-      "FontAwesome5Free-Solid",
-      sans-serif
-    );
-    font-size: var(--bidexpertru-semantic-link-font-size, 14px);
-    line-height: var(--bidexpertru-semantic-link-line-height, 14px);
-    font-weight: var(--bidexpertru-semantic-link-font-weight, 400);
-    position: relative;
-    width: 12.59px;
-    height: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-  }
   .div36 {
     color: var(--color-white-solid, #ffffff);
     text-align: left;
@@ -726,10 +708,14 @@
   }
   .clip-path-group4 {
     height: auto;
+    width: 100%;
+    display: block;
     position: absolute;
     left: 0px;
     top: 0px;
-    overflow: visible;
+    overflow: hidden;
+    backface-visibility: hidden;
+    transform: translateZ(0);
   }
   .link7 {
     background: var(--color-grey-13, #222222);
@@ -1033,15 +1019,6 @@
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-    justify-content: flex-start;
-  }
-  .container9 {
-    position: relative;
-    display: flex;
-    height: auto;
-    width: 100%;
-    flex-direction: column;
-    align-items: flex-start;
     justify-content: flex-start;
   }
   .div40 {
@@ -1824,24 +1801,6 @@
     flex-shrink: 0;
     position: relative;
   }
-  .symbol4 {
-    color: var(--color-orange-50, #ff6700);
-    text-align: left;
-    font-family: var(
-      --bidexpertru-semantic-link-font-family,
-      "FontAwesome5Free-Solid",
-      sans-serif
-    );
-    font-size: var(--bidexpertru-semantic-link-font-size, 14px);
-    line-height: var(--bidexpertru-semantic-link-line-height, 14px);
-    font-weight: var(--bidexpertru-semantic-link-font-weight, 400);
-    position: relative;
-    width: 12.59px;
-    height: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-  }
   .div36 {
     color: var(--color-white-solid, #ffffff);
     text-align: left;
@@ -2355,15 +2314,6 @@
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-    justify-content: flex-start;
-  }
-  .container9 {
-    position: relative;
-    display: flex;
-    height: auto;
-    width: 100%;
-    flex-direction: column;
-    align-items: flex-start;
     justify-content: flex-start;
   }
   .div40 {
@@ -3166,24 +3116,6 @@
     flex-shrink: 0;
     position: relative;
   }
-  .symbol4 {
-    color: var(--color-orange-50, #ff6700);
-    text-align: left;
-    font-family: var(
-      --bidexpertru-semantic-link-font-family,
-      "FontAwesome5Free-Solid",
-      sans-serif
-    );
-    font-size: var(--bidexpertru-semantic-link-font-size, 14px);
-    line-height: var(--bidexpertru-semantic-link-line-height, 14px);
-    font-weight: var(--bidexpertru-semantic-link-font-weight, 400);
-    position: relative;
-    width: 12.59px;
-    height: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-  }
   .div36 {
     color: var(--color-white-solid, #ffffff);
     text-align: left;
@@ -3731,15 +3663,6 @@
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-    justify-content: flex-start;
-  }
-  .container9 {
-    position: relative;
-    display: flex;
-    height: auto;
-    width: 100%;
-    flex-direction: column;
-    align-items: flex-start;
     justify-content: flex-start;
   }
   .div40 {

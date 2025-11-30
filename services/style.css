@@ -666,7 +666,7 @@
     height: 100%;
     position: absolute;
     right: 0%;
-    left: 20%;
+    left: 30%;
     top: 20%;
     overflow: visible;
   }
@@ -675,7 +675,7 @@
     height: 100%;
     position: absolute;
     right: 0%;
-    left: 0%;
+    left: 10%;
     top: 10%;
     overflow: visible;
   }
@@ -684,7 +684,7 @@
     height: 115%;
     position: absolute;
     right: 0%;
-    left: 8%;
+    left: 18%;
     top: 0%;
     overflow: visible;
   }
@@ -935,7 +935,7 @@
     height: 431px;
     position: absolute;
     right: 0%;
-    left: 45%;
+    left: 55%;
     top: 30%;
     overflow: visible;
   }
