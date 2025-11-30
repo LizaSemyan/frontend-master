@@ -59,6 +59,53 @@
     align-items: center;
     justify-content: flex-start; /* Ensures padding doesn't expand width */
   }
+  .input2--password {
+    padding-right: 60px;
+  }
+  .input2--password .styled-input {
+    position: relative;
+    padding-right: 56px;
+  }
+  .toggle-password {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-grey-51, #828282);
+    transition: color 0.2s ease;
+    z-index: 1;
+  }
+  .toggle-password:is(:hover, :focus-visible) {
+    color: var(--color-grey-13, #222222);
+  }
+  .toggle-password.is-visible {
+    color: var(--color-orange-50, #ff6700);
+  }
+  .toggle-password svg {
+    width: 24px;
+    height: 24px;
+  }
+  .toggle-password path {
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+  }
+  .toggle-password .eye-slash {
+    display: none;
+  }
+  .toggle-password.is-visible .eye-slash {
+    display: block;
+  }
   .button:hover {
     background: var(--color-grey-18, #222222);
   }

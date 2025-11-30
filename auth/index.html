@@ -67,12 +67,40 @@
                   <input type="text" class="styled-input" />
                 </div>
               </div>
-              <div class="input">
+              <div class="input input--password">
                 <div class="label">
                   <div class="text">Пароль</div>
                 </div>
-                <div class="input2">
-                  <input type="text" class="styled-input" />
+                <div class="input2 input2--password">
+                  <input
+                    type="password"
+                    id="auth-password"
+                    autocomplete="current-password"
+                    class="styled-input"
+                  />
+                  <button
+                    type="button"
+                    class="toggle-password"
+                    aria-label="Показать пароль"
+                    aria-pressed="false"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                    >
+                      <path
+                        class="eye-outline"
+                        d="M1.5 12C3.2 7.9 7 5 12 5s8.8 2.9 10.5 7c-1.7 4.1-5.5 7-10.5 7s-8.8-2.9-10.5-7Z"
+                      />
+                      <path
+                        class="eye-pupil"
+                        d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"
+                      />
+                      <path class="eye-slash" d="M4 4l16 16" />
+                    </svg>
+                  </button>
                 </div>
               </div>
               <div class="frame-100">
@@ -90,8 +118,12 @@
           </div>
         </div>
         <div class="frame-352">
-          <div class="heading-22">Зарегистрироваться</div>
-          <img class="line-1" src="line-10.svg" />
+          <a href="../registration/index.html" class="heading-22">
+            Зарегистрироваться
+          </a>
+          <a href="../registration/index.html" class="line-link">
+            <img class="line-1" src="line-10.svg" />
+          </a>
         </div>
       </div>
       <div class="header">
@@ -146,5 +178,26 @@
         </div>
       </div>
     </div>
+    <script>
+      (function () {
+        var passwordInput = document.getElementById("auth-password");
+        var toggleButton = document.querySelector(".toggle-password");
+
+        if (!passwordInput || !toggleButton) {
+          return;
+        }
+
+        toggleButton.addEventListener("click", function () {
+          var shouldReveal = passwordInput.getAttribute("type") === "password";
+          passwordInput.setAttribute("type", shouldReveal ? "text" : "password");
+          toggleButton.classList.toggle("is-visible", shouldReveal);
+          toggleButton.setAttribute(
+            "aria-label",
+            shouldReveal ? "Скрыть пароль" : "Показать пароль"
+          );
+          toggleButton.setAttribute("aria-pressed", shouldReveal ? "true" : "false");
+        });
+      })();
+    </script>
   </body>
 </html>
