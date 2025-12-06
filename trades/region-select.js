@@ -55,8 +55,32 @@ const SUBCATEGORY_OPTIONS = {
   ],
 };
 
+const TRADE_FORM_OPTIONS = [
+  "Электронный аукцион",
+  "Публичное предложение",
+  "Продажа без объявления цены",
+  "Электронный конкурс",
+  "Специализированный аукцион",
+  "Прямая продажа",
+  "Сообщение о предоставлении (реализации)",
+  "Аукцион",
+  "Электронный аукцион за долю",
+  "Предложение о заключении концессионного соглашения",
+  "Конкурс",
+  "Публичное предложение (ЗК РФ)",
+  "Решение о реализации проекта ГЧП, проекта МЧП",
+  "Продажа без объявления цены (цессия)",
+  "Публичное предложение (цессия)",
+];
+
 const REGION_SELECT_OPEN_CLASS = "region-select--open";
 const CUSTOM_SELECT_CHANGE_EVENT = "custom-select:change";
+const SELECT_PLACEHOLDER_BY_PREFIX = {
+  region: "Регион",
+  category: "Категория",
+  subcategory: "Подкатегория",
+  "trade-form": "Форма проведения торгов",
+};
 
 function initCustomSelect(selectEl, { prefix, options = [] }) {
   const query = (name) => selectEl.querySelector(`[data-${prefix}-${name}]`);
@@ -70,11 +94,7 @@ function initCustomSelect(selectEl, { prefix, options = [] }) {
   }
 
   const fallbackPlaceholder =
-    prefix === "region"
-      ? "Регион"
-      : prefix === "subcategory"
-      ? "Подкатегория"
-      : "Категория";
+    SELECT_PLACEHOLDER_BY_PREFIX[prefix] || "Категория";
   const placeholderText = selectEl.dataset.placeholder || fallbackPlaceholder;
   const removeAttr = `data-${prefix}-remove`;
   const selectedValues = new Map();
@@ -358,5 +378,10 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+
+  initSelectGroup("[data-trade-form-select]", {
+    prefix: "trade-form",
+    options: TRADE_FORM_OPTIONS,
+  });
 });
 
