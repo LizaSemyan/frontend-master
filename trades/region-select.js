@@ -73,6 +73,17 @@ const TRADE_FORM_OPTIONS = [
   "Публичное предложение (цессия)",
 ];
 
+const PLATFORM_OPTIONS = [
+  "Сбербанк-АСТ",
+  "РТС-тендер",
+  "Росэлторг",
+  'ЭТП "Фабрикант"',
+  "ЭТП ГПБ",
+  "ZakazRF",
+  "ЭТП РАД",
+  "ТЭК-Торг",
+];
+
 const REGION_SELECT_OPEN_CLASS = "region-select--open";
 const CUSTOM_SELECT_CHANGE_EVENT = "custom-select:change";
 const SELECT_PLACEHOLDER_BY_PREFIX = {
@@ -80,6 +91,7 @@ const SELECT_PLACEHOLDER_BY_PREFIX = {
   category: "Категория",
   subcategory: "Подкатегория",
   "trade-form": "Форма проведения торгов",
+  platform: "Эл. площадка",
 };
 
 function initCustomSelect(selectEl, { prefix, options = [] }) {
@@ -382,6 +394,11 @@ document.addEventListener("DOMContentLoaded", () => {
   initSelectGroup("[data-trade-form-select]", {
     prefix: "trade-form",
     options: TRADE_FORM_OPTIONS,
+  });
+
+  initSelectGroup("[data-platform-select]", {
+    prefix: "platform",
+    options: PLATFORM_OPTIONS,
   });
 });
 
