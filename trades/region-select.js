@@ -11,19 +11,28 @@ const REGION_OPTIONS = [
   "Ростов-на-Дону",
 ];
 
+const CATEGORY_OPTIONS = [
+  "Недвижимость",
+  "Земельные участки",
+  "Транспорт",
+];
+
 const REGION_SELECT_OPEN_CLASS = "region-select--open";
 
-function initRegionSelect(selectEl) {
-  const tagsContainer = selectEl.querySelector("[data-region-tags]");
-  const dropdown = selectEl.querySelector("[data-region-options]");
-  const toggle = selectEl.querySelector("[data-region-toggle]");
-  const placeholderEl = selectEl.querySelector("[data-region-placeholder]");
+function initCustomSelect(selectEl, { prefix, options }) {
+  const query = (name) => selectEl.querySelector(`[data-${prefix}-${name}]`);
+  const tagsContainer = query("tags");
+  const dropdown = query("options");
+  const toggle = query("toggle");
+  const placeholderEl = query("placeholder");
 
   if (!tagsContainer || !dropdown || !toggle) {
     return;
   }
 
-  const placeholderText = selectEl.dataset.placeholder || "Регион";
+  const fallbackPlaceholder = prefix === "region" ? "Регион" : "Категория";
+  const placeholderText = selectEl.dataset.placeholder || fallbackPlaceholder;
+  const removeAttr = `data-${prefix}-remove`;
   const selectedValues = new Map();
 
   const updatePlaceholder = () => {
@@ -56,7 +65,7 @@ function initRegionSelect(selectEl) {
       removeBtn.className = "region-tag__remove";
       removeBtn.setAttribute("aria-label", `Удалить ${label}`);
       removeBtn.innerHTML = "&times;";
-      removeBtn.dataset.regionRemove = "true";
+      removeBtn.setAttribute(removeAttr, "true");
       tag.appendChild(removeBtn);
 
       tagsContainer.insertBefore(tag, placeholderEl || null);
@@ -107,7 +116,7 @@ function initRegionSelect(selectEl) {
   };
 
   const handleRemoveClick = (event) => {
-    const removeBtn = event.target.closest("[data-region-remove]");
+    const removeBtn = event.target.closest(`[${removeAttr}]`);
     if (!removeBtn) {
       return;
     }
@@ -157,13 +166,13 @@ function initRegionSelect(selectEl) {
     }
   });
 
-  REGION_OPTIONS.forEach((city) => {
+  options.forEach((option) => {
     const optionBtn = document.createElement("button");
     optionBtn.type = "button";
     optionBtn.className = "region-option";
-    optionBtn.dataset.value = city;
+    optionBtn.dataset.value = option;
     optionBtn.setAttribute("aria-pressed", "false");
-    optionBtn.textContent = city;
+    optionBtn.textContent = option;
     dropdown.appendChild(optionBtn);
   });
 
@@ -172,7 +181,15 @@ function initRegionSelect(selectEl) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const regionSelects = document.querySelectorAll("[data-region-select]");
-  regionSelects.forEach((selectEl) => initRegionSelect(selectEl));
+  const selectConfigs = [
+    { prefix: "region", options: REGION_OPTIONS },
+    { prefix: "category", options: CATEGORY_OPTIONS },
+  ];
+
+  selectConfigs.forEach((config) => {
+    document
+      .querySelectorAll(`[data-${config.prefix}-select]`)
+      .forEach((selectEl) => initCustomSelect(selectEl, config));
+  });
 });
 
