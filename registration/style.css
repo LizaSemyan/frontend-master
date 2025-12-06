@@ -11,16 +11,17 @@
     overflow: hidden;
   }
   .group {
-    opacity: 0.3;
-    width: 22.24%;
-    height: 35.37%;
+    opacity: 1;
+    width: 500px;
+    height: 500px;
     position: absolute;
-    right: 17.97%;
-    left: 59.79%;
-    bottom: 20.92%;
-    top: 43.71%;
-    transform: translate(0px, -633.9px);
-    overflow: visible;
+    right: 0px;
+    /* left: 59.79%; */
+    /* bottom: 20.92%; */
+    top: 200px;
+    z-index: 100;
+    /* transform: translate(0px, -633.9px); */
+    overflow: hidden;
   }
   .group2 {
     opacity: 0.3;
