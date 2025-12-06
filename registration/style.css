@@ -180,7 +180,8 @@
     flex-shrink: 0;
     width: 100%;
     min-width: 580px;
-    height: 89px;
+    min-height: 89px;
+    height: auto;
     position: relative;
   }
   .label {

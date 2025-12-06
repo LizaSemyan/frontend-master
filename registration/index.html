@@ -187,8 +187,23 @@
                       </div>
                     </div>
                     <div class="input2">
-                      <input type="text" class="styled-input" />
+                      <input
+                        id="legal-email-input"
+                        type="email"
+                        class="styled-input"
+                        inputmode="email"
+                        autocomplete="email"
+                        data-email-input
+                        aria-describedby="legal-email-error"
+                      />
                     </div>
+                    <div
+                      class="input-error"
+                      id="legal-email-error"
+                      data-email-error
+                      data-visible="false"
+                      role="alert"
+                    ></div>
                   </div>
                   <div class="frame-1002">
                     <div class="div3">
@@ -378,8 +393,23 @@
                       </div>
                     </div>
                     <div class="input2">
-                      <input type="text" class="styled-input" />
+                      <input
+                        id="phis-email-input"
+                        type="email"
+                        class="styled-input"
+                        inputmode="email"
+                        autocomplete="email"
+                        data-email-input
+                        aria-describedby="phis-email-error"
+                      />
                     </div>
+                    <div
+                      class="input-error"
+                      id="phis-email-error"
+                      data-email-error
+                      data-visible="false"
+                      role="alert"
+                    ></div>
                   </div>
                   <div class="frame-1002">
                     <div class="div3">
@@ -597,6 +627,66 @@
         });
 
         setMode("legal");
+
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        const setupEmailField = (input) => {
+          const formState = input.closest(".form-state");
+          const errorId = input.getAttribute("aria-describedby");
+          const errorElement = errorId ? document.getElementById(errorId) : null;
+          const submitTrigger = formState?.querySelector("[data-submit-trigger]");
+
+          if (!errorElement) {
+            return;
+          }
+
+          const emailWrapper = input.closest(".input2");
+
+          const setErrorState = (message) => {
+            errorElement.textContent = message;
+            errorElement.setAttribute("data-visible", "true");
+            emailWrapper?.classList.add("input-error-state");
+          };
+
+          const clearErrorState = () => {
+            errorElement.textContent = "";
+            errorElement.setAttribute("data-visible", "false");
+            emailWrapper?.classList.remove("input-error-state");
+          };
+
+          const isValidEmail = (value) => emailPattern.test(value);
+
+          const validateEmail = () => {
+            const value = input.value.trim();
+
+            if (!value) {
+              setErrorState("Укажите e-mail");
+              return false;
+            }
+
+            if (!isValidEmail(value)) {
+              setErrorState("E-mail введен неверно");
+              return false;
+            }
+
+            clearErrorState();
+            return true;
+          };
+
+          input.addEventListener("input", clearErrorState);
+          input.addEventListener("blur", validateEmail);
+
+          submitTrigger?.addEventListener("click", (event) => {
+            if (!validateEmail()) {
+              event.preventDefault();
+              input.focus();
+            }
+          });
+        };
+
+        document
+          .querySelectorAll("[data-email-input]")
+          .forEach(setupEmailField);
 
         const formatPhoneValue = (rawValue) => {
           const template = "+7 (___) ___-__-__";
