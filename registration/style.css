@@ -3,72 +3,72 @@
   .div * {
     box-sizing: border-box;
   }
+  body {
+    min-height: 100vh;
+    background: #ebebeb;
+    position: relative;
+    overflow-x: hidden;
+  }
   .div {
     background: #ebebeb;
     height: fit-content;
     min-height: 100vh;
     position: relative;
     overflow: hidden;
+    z-index: 1;
+  }
+  .group,
+  .group2,
+  .group3,
+  .group4,
+  .group5 {
+    position: absolute;
+    pointer-events: none;
+    z-index: 0;
+    height: auto;
   }
   .group {
     opacity: 1;
     width: 500px;
     height: 500px;
-    position: absolute;
     right: 0px;
-    /* left: 59.79%; */
-    /* bottom: 20.92%; */
     top: 200px;
-    z-index: 100;
-    /* transform: translate(0px, -633.9px); */
     overflow: hidden;
   }
   .group2 {
-    opacity: 0.3;
-    width: 22.24%;
-    height: 35.37%;
-    position: absolute;
-    right: -27.6%;
-    left: 105.35%;
-    bottom: 2.86%;
-    top: 61.77%;
-    transform: translate(-770.81px, -444.61px);
+    opacity: 1;
+    width: 445px;
+    height: 445px;
+    right: -65px;
+    top: 450px;
+    transform: rotate(-15deg);
     overflow: visible;
   }
   .group3 {
-    opacity: 0.3;
-    width: 16.99%;
-    height: 27.01%;
-    position: absolute;
-    right: 55.38%;
-    left: 27.63%;
-    bottom: 67.45%;
-    top: 5.53%;
+    opacity: 1;
+    width: 500px;
+    left: 30%;
     transform: translate(-530.54px, -120.56px);
     overflow: visible;
   }
   .group4 {
-    opacity: 0.3;
-    width: 19.54%;
-    height: 31.06%;
-    position: absolute;
+    opacity: 1;
+    width: 500px;
     right: 85.16%;
-    left: -4.7%;
-    bottom: 26.64%;
-    top: 42.29%;
-    transform: translate(90.22px, 0px);
+    left: -60px;
+    top: 1400px;
     overflow: visible;
   }
   .group5 {
-    opacity: 0.3;
-    width: 19.54%;
-    height: 31.06%;
-    position: absolute;
-    right: 49.23%;
-    left: 31.23%;
-    bottom: -36.34%;
-    top: 105.28%;
-    transform: translate(-552.11px, -697.86px);
+    opacity: 1;
+    width: 500px;
+    /* height: 31.06%; */
+    /* right: 49.23%; */
+    left: 185px;
+    /* bottom: -36.34%; */
+    top: 1810px;
+    transform: rotate(-5deg);
+    /* transform: translate(-552.11px, -697.86px); */
     overflow: visible;
   }
   .frame-109 {
@@ -103,6 +103,7 @@
     justify-content: flex-start;
     flex-shrink: 0;
     position: relative;
+    z-index: 1;
     box-shadow: var(
       --card-shadow-box-shadow,
       0px 4px 40px 0px rgba(102, 61, 42, 0.07)
@@ -553,13 +554,6 @@
     flex-shrink: 0;
     position: relative;
   }
-  .group2 {
-    height: auto;
-    position: absolute;
-    left: 0px;
-    top: 0.07px;
-    overflow: visible;
-  }
   .div4 {
     color: var(--color-grey-16, #282828);
     text-align: left;
@@ -684,20 +678,6 @@
     display: flex;
     align-items: center;
     justify-content: flex-start; /* Ensures padding doesn't expand width */
-  }
-  .group2 {
-    height: auto;
-    position: absolute;
-    left: 0px;
-    top: 0.07px;
-    overflow: visible;
-  }
-  .group2 {
-    height: auto;
-    position: absolute;
-    left: 0px;
-    top: 0.07px;
-    overflow: visible;
   }
   .div4 {
     color: var(--color-grey-16, #282828);
