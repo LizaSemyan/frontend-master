@@ -1789,7 +1789,7 @@
   .frame-455 {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: start;
     justify-content: space-between;
     align-self: stretch;
     flex-shrink: 0;

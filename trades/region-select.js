@@ -17,9 +17,48 @@ const CATEGORY_OPTIONS = [
   "Транспорт",
 ];
 
-const REGION_SELECT_OPEN_CLASS = "region-select--open";
+const SUBCATEGORY_OPTIONS = {
+  Недвижимость: [
+    "Здания",
+    "Сооружения",
+    "Имущественные комплексы",
+    "Нежилые помещения",
+    "Жилые помещения",
+    "Гаражи и машиноместа",
+    "Объект незавершенного строительства",
+    "Единый недвижимый комплекс",
+    "Объект водоснабжения и (или) водоотведения",
+    "Объект теплоснабжения",
+    "Иной объект недвижимости",
+  ],
+  "Земельные участки": [
+    "Земли сельскохозяйственного назначения",
+    "Земли населенных пунктов",
+    "Земли специального назначения",
+    "Земли особо охраняемых территорий и объектов",
+    "Земли лесного фонда",
+    "Земли водного фонда",
+    "Земельные участки (категория не установлена)",
+    "Земельные участки (не образованы)",
+  ],
+  Транспорт: [
+    "Легковые автомобили",
+    "Грузовые автомобили",
+    "Автобусы",
+    "Мототехника",
+    "Спецтехника",
+    "Водный транспорт",
+    "Воздушный транспорт",
+    "Запчасти",
+    "Годные остатки",
+    "Иной транспорт",
+  ],
+};
 
-function initCustomSelect(selectEl, { prefix, options }) {
+const REGION_SELECT_OPEN_CLASS = "region-select--open";
+const CUSTOM_SELECT_CHANGE_EVENT = "custom-select:change";
+
+function initCustomSelect(selectEl, { prefix, options = [] }) {
   const query = (name) => selectEl.querySelector(`[data-${prefix}-${name}]`);
   const tagsContainer = query("tags");
   const dropdown = query("options");
@@ -30,10 +69,16 @@ function initCustomSelect(selectEl, { prefix, options }) {
     return;
   }
 
-  const fallbackPlaceholder = prefix === "region" ? "Регион" : "Категория";
+  const fallbackPlaceholder =
+    prefix === "region"
+      ? "Регион"
+      : prefix === "subcategory"
+      ? "Подкатегория"
+      : "Категория";
   const placeholderText = selectEl.dataset.placeholder || fallbackPlaceholder;
   const removeAttr = `data-${prefix}-remove`;
   const selectedValues = new Map();
+  let availableOptions = Array.isArray(options) ? [...options] : [];
 
   const updatePlaceholder = () => {
     if (!placeholderEl) {
@@ -49,6 +94,17 @@ function initCustomSelect(selectEl, { prefix, options }) {
       optionBtn.classList.toggle("is-selected", isSelected);
       optionBtn.setAttribute("aria-pressed", isSelected ? "true" : "false");
     }
+  };
+
+  const emitChange = () => {
+    selectEl.dispatchEvent(
+      new CustomEvent(CUSTOM_SELECT_CHANGE_EVENT, {
+        detail: {
+          values: Array.from(selectedValues.keys()),
+          labels: Array.from(selectedValues.values()),
+        },
+      })
+    );
   };
 
   const renderTags = () => {
@@ -74,9 +130,24 @@ function initCustomSelect(selectEl, { prefix, options }) {
     updatePlaceholder();
   };
 
-  const openDropdown = () => {
-    selectEl.classList.add(REGION_SELECT_OPEN_CLASS);
-    toggle.setAttribute("aria-expanded", "true");
+  const buildOption = (label) => {
+    const optionBtn = document.createElement("button");
+    optionBtn.type = "button";
+    optionBtn.className = "region-option";
+    optionBtn.dataset.value = label;
+    optionBtn.setAttribute("aria-pressed", "false");
+    optionBtn.textContent = label;
+    return optionBtn;
+  };
+
+  const populateOptions = (list) => {
+    dropdown.innerHTML = "";
+    list.forEach((option) => {
+      dropdown.appendChild(buildOption(option));
+    });
+    selectedValues.forEach((_, value) => {
+      setOptionState(value, true);
+    });
   };
 
   const closeDropdown = () => {
@@ -84,7 +155,18 @@ function initCustomSelect(selectEl, { prefix, options }) {
     toggle.setAttribute("aria-expanded", "false");
   };
 
+  const openDropdown = () => {
+    if (!dropdown.children.length) {
+      return;
+    }
+    selectEl.classList.add(REGION_SELECT_OPEN_CLASS);
+    toggle.setAttribute("aria-expanded", "true");
+  };
+
   const toggleDropdown = () => {
+    if (!dropdown.children.length) {
+      return;
+    }
     if (selectEl.classList.contains(REGION_SELECT_OPEN_CLASS)) {
       closeDropdown();
     } else {
@@ -113,6 +195,7 @@ function initCustomSelect(selectEl, { prefix, options }) {
     }
 
     renderTags();
+    emitChange();
   };
 
   const handleRemoveClick = (event) => {
@@ -135,6 +218,7 @@ function initCustomSelect(selectEl, { prefix, options }) {
     selectedValues.delete(value);
     setOptionState(value, false);
     renderTags();
+    emitChange();
   };
 
   toggle.addEventListener("click", (event) => {
@@ -166,30 +250,113 @@ function initCustomSelect(selectEl, { prefix, options }) {
     }
   });
 
-  options.forEach((option) => {
-    const optionBtn = document.createElement("button");
-    optionBtn.type = "button";
-    optionBtn.className = "region-option";
-    optionBtn.dataset.value = option;
-    optionBtn.setAttribute("aria-pressed", "false");
-    optionBtn.textContent = option;
-    dropdown.appendChild(optionBtn);
-  });
-
+  populateOptions(availableOptions);
   renderTags();
-  updatePlaceholder();
+
+  const setOptions = (list = []) => {
+    availableOptions = Array.isArray(list) ? [...list] : [];
+    closeDropdown();
+    populateOptions(availableOptions);
+
+    const valuesToDelete = [];
+    selectedValues.forEach((_, value) => {
+      if (!availableOptions.includes(value)) {
+        valuesToDelete.push(value);
+      }
+    });
+
+    valuesToDelete.forEach((value) => {
+      selectedValues.delete(value);
+    });
+
+    if (valuesToDelete.length > 0) {
+      renderTags();
+    } else {
+      updatePlaceholder();
+    }
+
+    emitChange();
+  };
+
+  const clearSelection = () => {
+    if (!selectedValues.size) {
+      return;
+    }
+    selectedValues.clear();
+    renderTags();
+    emitChange();
+  };
+
+  const api = {
+    getValues: () => Array.from(selectedValues.keys()),
+    setOptions,
+    clear: clearSelection,
+  };
+
+  selectEl.customSelect = api;
+  return api;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const selectConfigs = [
-    { prefix: "region", options: REGION_OPTIONS },
-    { prefix: "category", options: CATEGORY_OPTIONS },
-  ];
+  const initSelectGroup = (selector, config) =>
+    Array.from(document.querySelectorAll(selector))
+      .map((selectEl) => ({
+        element: selectEl,
+        instance: initCustomSelect(selectEl, config),
+      }))
+      .filter(({ instance }) => Boolean(instance));
 
-  selectConfigs.forEach((config) => {
-    document
-      .querySelectorAll(`[data-${config.prefix}-select]`)
-      .forEach((selectEl) => initCustomSelect(selectEl, config));
+  initSelectGroup("[data-region-select]", {
+    prefix: "region",
+    options: REGION_OPTIONS,
   });
+
+  const categorySelects = initSelectGroup("[data-category-select]", {
+    prefix: "category",
+    options: CATEGORY_OPTIONS,
+  });
+
+  const subcategorySelects = initSelectGroup("[data-subcategory-select]", {
+    prefix: "subcategory",
+    options: [],
+  });
+
+  if (categorySelects.length && subcategorySelects.length) {
+    const buildSubcategoryOptions = (categories) => {
+      if (!categories.length) {
+        return [];
+      }
+
+      const result = [];
+      const seen = new Set();
+
+      categories.forEach((category) => {
+        const options = SUBCATEGORY_OPTIONS[category] || [];
+        options.forEach((option) => {
+          if (seen.has(option)) {
+            return;
+          }
+          seen.add(option);
+          result.push(option);
+        });
+      });
+
+      return result;
+    };
+
+    const syncSubcategories = (categories) => {
+      const nextOptions = buildSubcategoryOptions(categories);
+      subcategorySelects.forEach(({ instance }) => {
+        instance.setOptions(nextOptions);
+      });
+    };
+
+    categorySelects.forEach(({ element }) => {
+      element.addEventListener(CUSTOM_SELECT_CHANGE_EVENT, (event) => {
+        const categories = event.detail?.values || [];
+        syncSubcategories(categories);
+      });
+    });
+  }
 });
 
