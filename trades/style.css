@@ -1704,8 +1704,18 @@
     flex-direction: column;
     gap: 6px;
     max-height: 220px;
-    overflow-y: auto;
+    overflow: hidden;
     z-index: 5;
+  }
+
+  .region-select__dropdown-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    max-height: calc(220px - 24px);
+    overflow-y: auto;
+    padding-right: 8px;
+    scrollbar-gutter: stable;
   }
   .region-select.region-select--open .region-select__dropdown {
     display: flex;
