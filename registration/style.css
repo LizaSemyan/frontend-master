@@ -227,6 +227,22 @@
     position: relative;
     overflow: hidden;
   }
+  .input-error {
+    min-height: 18px;
+    font-family: var(--font-family-font-1, "Inter-Regular", sans-serif);
+    font-size: 12px;
+    line-height: 16px;
+    color: var(--bidexpertru-alizarin-crimson, #e12b25);
+    transition: opacity 0.2s ease;
+    opacity: 0;
+  }
+  .input-error[data-visible="true"] {
+    opacity: 1;
+  }
+  .input-error-state {
+    border-color: var(--bidexpertru-alizarin-crimson, #e12b25) !important;
+    box-shadow: 0 0 0 1px rgba(225, 43, 37, 0.15);
+  }
   .frame-110 {
     display: flex;
     flex-direction: column;
