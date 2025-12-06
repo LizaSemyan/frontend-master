@@ -466,6 +466,12 @@
     align-self: stretch;
     flex-shrink: 0;
     position: relative;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+  }
+  .button:hover {
+    background: var(--color-grey-18, #222222);
+    transform: scale(1.05);
   }
   .div7 {
     color: var(--color-white-solid, #ffffff);
