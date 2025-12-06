@@ -90,15 +90,35 @@
                 </div>
               </div>
               <div class="select2">
-                <div class="frame-162">
-                  <div class="input4">
-                    <input
-                      type="text"
-                      placeholder="Регион"
-                      class="styled-input"
-                    />
+                <div
+                  class="region-select"
+                  data-region-select
+                  data-placeholder="Регион"
+                >
+                  <div
+                    class="region-select__control"
+                    role="button"
+                    tabindex="0"
+                    aria-haspopup="listbox"
+                    aria-expanded="false"
+                    data-region-toggle
+                  >
+                    <div class="region-select__tags" data-region-tags>
+                      <span
+                        class="region-select__placeholder"
+                        data-region-placeholder
+                        >Регион</span
+                      >
+                    </div>
+                    <div class="region-select__arrow">
+                      <img class="input6" src="vector3.svg" alt="" />
+                    </div>
                   </div>
-                  <img class="input6" src="input6.svg" />
+                  <div
+                    class="region-select__dropdown"
+                    role="listbox"
+                    data-region-options
+                  ></div>
                 </div>
               </div>
             </div>
@@ -930,5 +950,6 @@
         </div>
       </div>
     </div>
+    <script src="./region-select.js"></script>
   </body>
 </html>

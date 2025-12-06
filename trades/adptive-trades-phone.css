@@ -2103,7 +2103,7 @@
   display: flex;
   flex-direction: column;
   gap: 14px;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
   flex-shrink: 0;
   position: relative;
@@ -2116,7 +2116,7 @@
   justify-content: flex-start;
   flex-shrink: 0;
   width: 322px;
-  height: 42px;
+  min-height: 42px;
   position: relative;
 }
 .input4 {
