@@ -1,4 +1,4 @@
-@media (min-width: 1200px) {
+@media only screen and (max-width: 575px) {
   .div,
   .div * {
     box-sizing: border-box;
@@ -777,9 +777,9 @@
   }
   .frame-349 {
     display: flex;
-    width: 70%;
+    width: 100%;
     flex-direction: column;
-    gap: 72px;
+    gap: 30px;
     align-items: flex-start;
     justify-content: flex-start;
     position: relative;
@@ -787,7 +787,7 @@
   .frame-348 {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 10px;
     align-items: flex-start;
     justify-content: flex-start;
     flex-shrink: 0;
@@ -797,7 +797,7 @@
     color: var(--color-grey-20, #333333);
     text-align: left;
     font-family: "Inter-SemiBold", sans-serif;
-    font-size: 56px;
+    font-size: 24px;
     font-weight: 600;
     position: relative;
     display: flex;
@@ -817,7 +817,7 @@
     color: var(--color-grey-51, #828282);
     text-align: left;
     font-family: "Inter-Regular", sans-serif;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 400;
     position: relative;
     display: flex;
@@ -855,7 +855,7 @@
     color: var(--color-grey-51, #828282);
     text-align: left;
     font-family: "Inter-Regular", sans-serif;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 400;
     position: relative;
     display: flex;
@@ -897,7 +897,7 @@
   .frame-353 {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 30px;
     align-items: flex-start;
     justify-content: flex-start;
     flex-shrink: 0;
@@ -907,7 +907,7 @@
     color: var(--color-grey-20, #333333);
     text-align: left;
     font-family: "Inter-SemiBold", sans-serif;
-    font-size: 56px;
+    font-size: 24px;
     font-weight: 600;
     position: relative;
     display: flex;
@@ -917,7 +917,7 @@
   .frame-358 {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
     align-items: flex-start;
     justify-content: flex-start;
     flex-shrink: 0;
@@ -926,7 +926,7 @@
   .frame-354 {
     display: flex;
     flex-direction: row;
-    gap: 32px;
+    gap: 20px;
     align-items: flex-start;
     justify-content: flex-start;
     flex-shrink: 0;
@@ -936,7 +936,7 @@
     color: var(--color-grey-20, #333333);
     text-align: left;
     font-family: "Inter-Regular", sans-serif;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 400;
     position: relative;
     display: flex;
@@ -947,7 +947,7 @@
     color: var(--color-orange-50, #ff6700);
     text-align: left;
     font-family: "Inter-Regular", sans-serif;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 400;
     position: relative;
     display: flex;
@@ -957,7 +957,7 @@
   .frame-355 {
     display: flex;
     flex-direction: row;
-    gap: 32px;
+    gap: 20px;
     align-items: flex-start;
     justify-content: flex-start;
     flex-shrink: 0;
@@ -966,7 +966,7 @@
   .frame-356 {
     display: flex;
     flex-direction: row;
-    gap: 32px;
+    gap: 20px;
     align-items: flex-start;
     justify-content: flex-start;
     flex-shrink: 0;
@@ -975,7 +975,7 @@
   .frame-357 {
     display: flex;
     flex-direction: row;
-    gap: 32px;
+    gap: 20px;
     align-items: flex-start;
     justify-content: flex-start;
     flex-shrink: 0;
@@ -984,7 +984,7 @@
   .frame-3542 {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 30px;
     align-items: flex-start;
     justify-content: flex-start;
     align-self: stretch;
@@ -994,7 +994,7 @@
   .frame-3552 {
     display: flex;
     flex-direction: column;
-    gap: 48px;
+    gap: 30px;
     align-items: flex-start;
     justify-content: flex-start;
     align-self: stretch;
@@ -1013,7 +1013,7 @@
   .frame-361 {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 30px;
     align-items: flex-start;
     justify-content: flex-start;
     flex-shrink: 0;
@@ -1069,7 +1069,7 @@
   .frame-3543 {
     display: flex;
     flex-direction: row;
-    gap: 32px;
+    gap: 20px;
     align-items: flex-start;
     justify-content: flex-start;
     align-self: stretch;
@@ -1080,7 +1080,7 @@
     color: var(--color-grey-20, #333333);
     text-align: left;
     font-family: "Inter-Regular", sans-serif;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 400;
     position: relative;
     display: flex;
@@ -1123,7 +1123,7 @@
   .frame-3553 {
     display: flex;
     flex-direction: row;
-    gap: 32px;
+    gap: 20px;
     align-items: flex-start;
     justify-content: flex-start;
     align-self: stretch;
@@ -1133,7 +1133,7 @@
   .frame-3563 {
     display: flex;
     flex-direction: row;
-    gap: 32px;
+    gap: 20px;
     align-items: flex-start;
     justify-content: flex-start;
     align-self: stretch;
@@ -1143,7 +1143,7 @@
   .frame-3572 {
     display: flex;
     flex-direction: row;
-    gap: 32px;
+    gap: 20px;
     align-items: flex-start;
     justify-content: flex-start;
     align-self: stretch;
@@ -1174,8 +1174,7 @@
     color: var(--color-grey-20, #333333);
     text-align: left;
     font-family: "Inter-Regular", sans-serif;
-    font-size: 24px;
-    line-height: 32px;
+    font-size: 16px;
     font-weight: 400;
     position: relative;
     flex: 1;
@@ -1196,7 +1195,7 @@
   .frame-3573 {
     display: flex;
     flex-direction: column;
-    gap: 48px;
+    gap: 30px;
     align-items: flex-start;
     justify-content: flex-start;
     align-self: stretch;
@@ -1206,7 +1205,7 @@
   .frame-3652 {
     background: var(--color-orange-50, #ff6700);
     border-radius: 30px;
-    padding: 32px;
+    padding: 24px;
     display: flex;
     flex-direction: row;
     gap: 10px;
@@ -1225,7 +1224,7 @@
     color: var(--color-white-solid, #ffffff);
     text-align: left;
     font-family: "Inter-SemiBold", sans-serif;
-    font-size: 36px;
+    font-size: 20px;
     font-weight: 600;
     position: relative;
     flex: 1;
@@ -1234,7 +1233,7 @@
     justify-content: flex-start;
   }
   .frame-351 {
-    padding: 0px 0px 80px 0px;
+    padding: 0px 0px 50px 0px;
     display: flex;
     flex-direction: column;
     gap: 48px;
@@ -1316,7 +1315,7 @@
   }
   .frame-339 {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 22px;
     align-items: center;
     justify-content: flex-start;
@@ -1435,8 +1434,8 @@
     width: 90%;
     margin-left: auto;
     margin-right: auto;
-    flex-direction: row;
-    margin-top: 150px;
+    flex-direction: column;
+    margin-top: 90px;
     gap: 20px;
     margin-bottom: 60px;
     position: relative;
@@ -1447,7 +1446,7 @@
     border-style: solid;
     border-color: var(--color-grey-97, #f7f7f7);
     border-width: 1px;
-    padding: 48px;
+    padding: 24px;
     display: flex;
     flex-direction: column;
     gap: 40px;
@@ -1526,11 +1525,6 @@
       0px 0px 10px 0px rgba(55, 175, 226, 0.4)
     );
     border-radius: 30px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-  }
-  .link223:hover {
-    background: var(--color-grey-18, #e55a00);
-    transform: scale(1.05);
   }
   .link223 {
     background: var(--color-orange-50, #ff6700);
@@ -1545,6 +1539,10 @@
     flex-shrink: 0;
     position: relative;
     transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  .link223:hover {
+    background: var(--color-grey-18, #e55a00);
+    transform: scale(1.05);
   }
   .group6 {
     height: auto;
