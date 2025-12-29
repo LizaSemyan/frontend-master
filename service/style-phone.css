@@ -1,4 +1,4 @@
-@media (min-width: 1200px) {
+@media only screen and (max-width: 575px) {
   .div,
   .div * {
     box-sizing: border-box;
@@ -106,27 +106,11 @@
     align-items: center;
     justify-content: flex-start;
   }
-  .info-bidexpert-ru {
-    color: var(--color-white-solid, #ffffff);
-    text-align: left;
-    font-family: var(
-      --bidexpertru-semantic-link-font-family,
-      "Inter-Regular",
-      sans-serif
-    );
-    font-size: var(--bidexpertru-semantic-link-font-size, 14px);
-    line-height: var(--bidexpertru-semantic-link-line-height, 20px);
-    font-weight: var(--bidexpertru-semantic-link-font-weight, 400);
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-  }
   ._8-495-492-57-472 {
     color: var(--color-black-solid, #000000);
     text-align: left;
     font-family: var(--font-family-font-1, "Inter-Medium", sans-serif);
-    font-size: 14px;
+    font-size: 70%;
     font-weight: var(--font-weight-500, 500);
     position: relative;
     display: flex;
@@ -660,27 +644,27 @@
     border-radius: 50px;
     width: 96%;
     margin: 2%;
-    height: 800px;
+    height: 350px;
     position: relative;
     overflow: hidden;
   }
   .illustration {
     height: auto;
     position: absolute;
-    left: 30%;
-    top: 10%;
+    width: 450px;
+    right: -170px;
+    top: 15%;
     overflow: visible;
   }
   .frame-101 {
-    padding: 0px 45px 0px 45px;
     display: flex;
     flex-direction: row;
-    gap: 20px;
-    align-items: center;
+    gap: 5px;
+
     justify-content: flex-start;
     position: absolute;
-    left: 34px;
-    top: 135px;
+    top: 50px;
+    left: 10px;
   }
   .frame-102 {
     display: flex;
@@ -786,7 +770,7 @@
   .frame-103 {
     display: flex;
     flex-direction: row;
-    gap: 12px;
+    gap: 5px;
     align-items: center;
     justify-content: flex-start;
     flex-shrink: 0;
@@ -864,7 +848,7 @@
     color: var(--color-black-solid, #000000);
     text-align: left;
     font-family: var(--font-family-font-1, "Inter-Medium", sans-serif);
-    font-size: 14px;
+    font-size: 7px;
     font-weight: var(--font-weight-500, 500);
     position: relative;
     display: flex;
@@ -880,7 +864,7 @@
     color: var(--color-black-solid, #000000);
     text-align: left;
     font-family: var(--font-family-font-1, "Inter-Medium", sans-serif);
-    font-size: 14px;
+    font-size: 7px;
     font-weight: var(--font-weight-500, 500);
     position: relative;
     display: flex;
@@ -894,6 +878,10 @@
     position: relative;
     display: inline-flex;
     gap: 4px;
+  }
+  .mobile-image {
+    width: 10px;
+    height: 10px;
   }
   .info-bidexpert-ru2 {
     color: var(--color-grey-30, #4c4c4c);
@@ -909,22 +897,20 @@
   .frame-373 {
     display: flex;
     flex-direction: column;
-    gap: 56px;
+    gap: 30px;
     align-items: flex-start;
     justify-content: flex-start;
-    width: 857px;
     position: absolute;
-    left: 79px;
-    top: 243px;
+    left: 10px;
+    top: 80px;
   }
   .div12 {
     color: var(--color-grey-16, #282828);
     text-align: left;
     font-family: "Inter-Bold", sans-serif;
-    font-size: 56px;
+    font-size: 25px;
     font-weight: 700;
     position: relative;
-    width: 822px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -932,7 +918,7 @@
   .frame-372 {
     display: flex;
     flex-direction: column;
-    gap: 48px;
+    gap: 20px;
     align-items: flex-start;
     justify-content: flex-start;
     align-self: stretch;
@@ -981,7 +967,7 @@
     color: var(--color-grey-51, #828282);
     text-align: left;
     font-family: "Inter-Regular", sans-serif;
-    font-size: 20px;
+    font-size: 75%;
     font-weight: 400;
     position: relative;
     flex: 1;
@@ -1029,7 +1015,7 @@
     color: var(--color-grey-51, #828282);
     text-align: left;
     font-family: "Inter-Regular", sans-serif;
-    font-size: 20px;
+    font-size: 75%;
     font-weight: 400;
     position: relative;
     flex: 1;
@@ -1040,15 +1026,17 @@
   .button {
     background: var(--color-grey-16, #282828);
     border-radius: 30px;
-    padding: 16px 24px 16px 24px;
+    padding: 4px 10px 4px 10px;
     display: flex;
     flex-direction: row;
     gap: 16px;
+    font-size: 12px;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
     position: relative;
     transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
   }
   .button:hover {
     background: var(--color-grey-18, #222222);
@@ -1062,7 +1050,7 @@
     color: var(--color-white-solid, #ffffff);
     text-align: right;
     font-family: "Inter-Medium", sans-serif;
-    font-size: 20px;
+    font-size: 12px;
     line-height: var(--font-size-20, 20px);
     font-weight: 500;
     position: relative;
@@ -1087,10 +1075,10 @@
   }
   .frame-406 {
     border-radius: 30px;
-    padding: 80px 0px 80px 0px;
+    padding: 60px 0px 60px 0px;
     display: flex;
     flex-direction: column;
-    gap: 56px;
+    gap: 20px;
     align-items: center;
     justify-content: flex-start;
     align-self: stretch;
@@ -1104,8 +1092,7 @@
     color: var(--color-grey-13, #222222);
     text-align: center;
     font-family: var(--font-family-font-1, "Inter-SemiBold", sans-serif);
-    font-size: 56px;
-    line-height: var(--line-height-66, 66px);
+    font-size: 20px;
     font-weight: 600;
     position: relative;
     align-self: stretch;
@@ -1115,7 +1102,7 @@
   }
   .frame-405 {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 32px;
     align-items: flex-start;
     justify-content: flex-start;
@@ -1126,7 +1113,7 @@
   .frame-412 {
     display: flex;
     flex-direction: column;
-    gap: 22px;
+    gap: 10px;
     align-items: flex-start;
     justify-content: flex-start;
     flex: 1;
@@ -1137,7 +1124,7 @@
     color: var(--color-grey-20, #333333);
     text-align: left;
     font-family: "Inter-SemiBold", sans-serif;
-    font-size: 38px;
+    font-size: 18px;
     font-weight: 600;
     position: relative;
     display: flex;
@@ -1147,7 +1134,7 @@
   .frame-139 {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 5px;
     align-items: flex-start;
     justify-content: flex-start;
     align-self: stretch;
@@ -1158,7 +1145,7 @@
     color: var(--color-grey-51, #828282);
     text-align: left;
     font-family: "Inter-Regular", sans-serif;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 400;
     position: relative;
     align-self: stretch;
@@ -1170,7 +1157,7 @@
     color: var(--color-grey-51, #828282);
     text-align: left;
     font-family: "Inter-Regular", sans-serif;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 400;
     position: relative;
     align-self: stretch;
@@ -1184,7 +1171,7 @@
     border-style: solid;
     border-color: var(--color-grey-97, #f7f7f7);
     border-width: 1px;
-    padding: 40px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     gap: 40px;
@@ -1212,20 +1199,19 @@
   .frame-151 {
     display: flex;
     flex-direction: row;
-    gap: 32px;
+    gap: 20px;
     align-items: center;
     justify-content: flex-start;
     align-self: stretch;
     flex-shrink: 0;
-    height: 72px;
     position: relative;
   }
   .frame-142 {
     position: relative;
-    width: 70px;
-    height: 70px;
-    min-width: 70px;
-    min-height: 70px;
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    min-height: 50px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -1283,7 +1269,7 @@
     color: var(--color-grey-20, #333333);
     text-align: left;
     font-family: "Inter-Regular", sans-serif;
-    font-size: 24px;
+    font-size: 16px;
     font-weight: 400;
     position: relative;
     align-self: stretch;
@@ -1360,7 +1346,7 @@
     color: var(--color-grey-20, #333333);
     text-align: left;
     font-family: "Inter-SemiBold", sans-serif;
-    font-size: 54px;
+    font-size: 20px;
     font-weight: 600;
     position: relative;
     display: flex;
@@ -1374,7 +1360,6 @@
     align-items: flex-start;
     justify-content: center;
     flex-shrink: 0;
-    height: 58px;
     position: relative;
   }
   .button3:hover {
@@ -1388,7 +1373,7 @@
   .link234 {
     background: var(--color-orange-50, #ff6700);
     border-radius: 30px;
-    padding: 16px 30px 16px 30px;
+    padding: 4px 10px 4px 10px;
     display: flex;
     flex-direction: row;
     gap: 16px;
@@ -1401,13 +1386,13 @@
   .frame-399 {
     background: var(--color-grey-97, #f7f7f7);
     border-radius: 50px;
-    padding: 80px 30px 80px 30px;
+    padding: 30px 20px 30px 20px;
     width: 96%;
     margin-left: auto;
     margin-right: auto;
     display: flex;
     flex-direction: column;
-    gap: 56px;
+    gap: 20px;
     align-items: center;
     justify-content: flex-start;
     flex-shrink: 0;
@@ -1418,7 +1403,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     gap: 23px;
-    align-items: flex-start;
+    align-items: stretch;
     justify-content: flex-start;
     align-self: stretch;
     flex-shrink: 0;
@@ -1443,7 +1428,7 @@
     justify-content: flex-start;
     align-self: stretch;
     flex-shrink: 0;
-    width: 270px;
+    width: 210px;
     position: relative;
     box-shadow: var(
       --card-shadow-box-shadow,
@@ -1452,8 +1437,8 @@
   }
   .icon6 {
     flex-shrink: 0;
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     position: relative;
     overflow: visible;
     aspect-ratio: 1;
@@ -1462,7 +1447,7 @@
     color: var(--color-grey-20, #333333);
     text-align: center;
     font-family: "SegoeUi-Regular", sans-serif;
-    font-size: var(--font-size-20, 20px);
+    font-size: 16px;
     font-weight: 400;
     position: relative;
     align-self: stretch;
@@ -1471,6 +1456,7 @@
     justify-content: center;
   }
   .frame-135 {
+    align-self: stretch;
     background: #ffffff;
     border-radius: 20px;
     border-style: solid;
@@ -1484,7 +1470,7 @@
     justify-content: flex-start;
     align-self: stretch;
     flex-shrink: 0;
-    width: 271px;
+    width: 210px;
     position: relative;
     box-shadow: var(
       --card-shadow-box-shadow,
@@ -1493,13 +1479,14 @@
   }
   .icon7 {
     flex-shrink: 0;
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     position: relative;
     overflow: visible;
     aspect-ratio: 1;
   }
   .frame-136 {
+    align-self: stretch;
     background: #ffffff;
     border-radius: 20px;
     border-style: solid;
@@ -1513,7 +1500,7 @@
     justify-content: flex-start;
     align-self: stretch;
     flex-shrink: 0;
-    width: 270px;
+    width: 210px;
     position: relative;
     box-shadow: var(
       --card-shadow-box-shadow,
@@ -1522,13 +1509,14 @@
   }
   .icon8 {
     flex-shrink: 0;
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     position: relative;
     overflow: visible;
     aspect-ratio: 1;
   }
   .frame-137 {
+    align-self: stretch;
     background: #ffffff;
     border-radius: 20px;
     border-style: solid;
@@ -1542,7 +1530,7 @@
     justify-content: flex-start;
     align-self: stretch;
     flex-shrink: 0;
-    width: 270px;
+    width: 210px;
     position: relative;
     box-shadow: var(
       --card-shadow-box-shadow,
@@ -1551,13 +1539,14 @@
   }
   .icon9 {
     flex-shrink: 0;
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     position: relative;
     overflow: visible;
     aspect-ratio: 1;
   }
   .frame-138 {
+    align-self: stretch;
     background: #ffffff;
     border-radius: 20px;
     border-style: solid;
@@ -1570,7 +1559,7 @@
     align-items: center;
     justify-content: flex-start;
     flex-shrink: 0;
-    width: 270px;
+    width: 210px;
     position: relative;
     box-shadow: var(
       --card-shadow-box-shadow,
@@ -1579,13 +1568,14 @@
   }
   .icon10 {
     flex-shrink: 0;
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     position: relative;
     overflow: visible;
     aspect-ratio: 1;
   }
   .frame-1393 {
+    align-self: stretch;
     background: #ffffff;
     border-radius: 20px;
     border-style: solid;
@@ -1599,7 +1589,7 @@
     justify-content: flex-start;
     align-self: stretch;
     flex-shrink: 0;
-    width: 270px;
+    width: 210px;
     position: relative;
     box-shadow: var(
       --card-shadow-box-shadow,
@@ -1608,17 +1598,17 @@
   }
   .icon11 {
     flex-shrink: 0;
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     position: relative;
     overflow: visible;
     aspect-ratio: 1;
   }
   .frame-4282 {
-    padding: 80px 0px 80px 0px;
+    padding: 60px 0px 60px 0px;
     display: flex;
     flex-direction: column;
-    gap: 56px;
+    gap: 40px;
     align-items: center;
     justify-content: flex-start;
     flex-shrink: 0;
@@ -1631,8 +1621,7 @@
     color: var(--color-grey-20, #333333);
     text-align: center;
     font-family: "Inter-SemiBold", sans-serif;
-    font-size: 56px;
-    line-height: var(--line-height-66, 66px);
+    font-size: 20px;
     font-weight: 600;
     position: relative;
     align-self: stretch;
@@ -1651,8 +1640,8 @@
     position: relative;
   }
   .frame-517 {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 22px;
     align-items: flex-start;
     justify-content: flex-start;
@@ -1666,10 +1655,11 @@
     border-style: solid;
     border-color: var(--color-grey-97, #f7f7f7);
     border-width: 1px;
-    padding: 40px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 20px;
+    width: 100%;
     align-items: flex-start;
     justify-content: flex-start;
     flex-shrink: 0;
@@ -1684,7 +1674,7 @@
     color: #000000;
     text-align: left;
     font-family: "Inter-SemiBold", sans-serif;
-    font-size: 38px;
+    font-size: 28px;
     font-weight: 600;
     position: relative;
     display: flex;
@@ -1704,7 +1694,7 @@
   .frame-1512 {
     display: flex;
     flex-direction: row;
-    gap: 32px;
+    gap: 15px;
     align-items: center;
     justify-content: flex-start;
     align-self: stretch;
@@ -1730,7 +1720,7 @@
     color: #000000;
     text-align: left;
     font-family: "Inter-Regular", sans-serif;
-    font-size: 24px;
+    font-size: 16px;
     font-weight: 400;
     position: relative;
     display: flex;
@@ -1850,7 +1840,7 @@
     color: #000000;
     text-align: left;
     font-family: "Inter-Regular", sans-serif;
-    font-size: 24px;
+    font-size: 16px;
     font-weight: 400;
     position: relative;
     display: flex;
@@ -1863,10 +1853,10 @@
     border-style: solid;
     border-color: var(--color-grey-97, #f7f7f7);
     border-width: 1px;
-    padding: 40px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 20px;
     align-items: flex-start;
     justify-content: flex-start;
     flex-shrink: 0;
@@ -1997,13 +1987,13 @@
     overflow: visible;
   }
   .frame-427 {
-    padding: 60px 0px 60px 0px;
+    padding: 0px 0px 60px 0px;
     width: 90%;
     margin-left: auto;
     margin-right: auto;
     display: flex;
     flex-direction: column;
-    gap: 56px;
+    gap: 20px;
     align-items: center;
     justify-content: flex-start;
     align-self: stretch;
@@ -2013,7 +2003,7 @@
   .frame-426 {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 20px;
     align-items: flex-start;
     justify-content: flex-start;
     flex-shrink: 0;
@@ -2050,7 +2040,7 @@
     color: var(--color-orange-50, #ff6700);
     text-align: left;
     font-family: "Inter-Regular", sans-serif;
-    font-size: 28px;
+    font-size: 18px;
     font-weight: 400;
     position: relative;
   }
@@ -2060,10 +2050,10 @@
     border-style: solid;
     border-color: var(--color-grey-97, #f7f7f7);
     border-width: 1px;
-    padding: 40px;
+    padding: 20px;
     display: flex;
-    flex-direction: row;
-    gap: 38px;
+    flex-direction: column;
+    gap: 20px;
     align-items: flex-start;
     justify-content: flex-start;
     align-self: stretch;
@@ -2076,10 +2066,10 @@
   }
   .frame-1422 {
     position: relative;
-    width: 140px;
-    height: 140px;
-    min-width: 140px;
-    min-height: 140px;
+    width: 100px;
+    height: 100px;
+    min-width: 100px;
+    min-height: 100px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -2122,15 +2112,14 @@
     align-items: flex-start;
     justify-content: flex-start;
     flex-shrink: 0;
-    width: calc(100% - 178px);
+    width: 100%;
     position: relative;
   }
   .heading-23 {
     color: var(--color-grey-20, #333333);
     text-align: left;
     font-family: "Inter-Medium", sans-serif;
-    font-size: 48px;
-    line-height: var(--line-height-66, 66px);
+    font-size: 20px;
     font-weight: 500;
     position: relative;
     align-self: stretch;
@@ -2156,7 +2145,7 @@
     border-color: var(--color-grey-50, #808080);
     border-width: 1px;
     flex: 1;
-    height: 52px;
+    height: 40px;
     position: relative;
     overflow: hidden;
   }
@@ -2168,7 +2157,7 @@
     font-weight: var(--font-weight-400, 400);
     position: absolute;
     left: 20px;
-    top: 15px;
+    top: 10px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -2183,8 +2172,8 @@
     align-items: center;
     justify-content: flex-start;
     flex-shrink: 0;
-    width: 52px;
-    height: 52px;
+    width: 40px;
+    height: 40px;
     position: relative;
     transition: background-color 0.3s ease, transform 0.2s ease;
   }
@@ -2200,8 +2189,9 @@
     line-height: var(--font-size-32, 32px);
     font-weight: var(--font-weight-900, 400);
     position: relative;
-    width: 15px;
-    height: 20px;
+    width: 10px;
+    top: -4px;
+    height: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2212,10 +2202,10 @@
     border-style: solid;
     border-color: var(--color-grey-97, #f7f7f7);
     border-width: 1px;
-    padding: 40px;
+    padding: 20px;
     display: flex;
-    flex-direction: row;
-    gap: 38px;
+    flex-direction: column;
+    gap: 20px;
     align-items: flex-start;
     justify-content: flex-start;
     align-self: stretch;
@@ -2225,10 +2215,10 @@
 
   .frame-1423 {
     position: relative;
-    width: 140px;
-    height: 140px;
-    min-width: 140px;
-    min-height: 140px;
+    width: 100px;
+    height: 100px;
+    min-width: 100px;
+    min-height: 100px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -2267,19 +2257,18 @@
   .frame-4172 {
     display: flex;
     flex-direction: column;
-    gap: 48px;
+    gap: 20px;
     align-items: flex-start;
     justify-content: flex-start;
     flex: 1;
     position: relative;
-    width: calc(100% - 178px);
+    width: 100%;
   }
   .heading-24 {
     color: var(--color-grey-51, #828282);
     text-align: left;
     font-family: "Inter-Medium", sans-serif;
-    font-size: 48px;
-    line-height: var(--line-height-66, 66px);
+    font-size: 20px;
     font-weight: 500;
     position: relative;
     align-self: stretch;
@@ -2290,7 +2279,8 @@
   .frame-423 {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    flex-wrap: wrap;
+    gap: 20px;
     align-items: flex-start;
     justify-content: flex-start;
     align-self: stretch;
@@ -2299,12 +2289,14 @@
   }
   .frame-422 {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    flex-wrap: wrap;
     gap: 24px;
     align-items: stretch;
     justify-content: flex-start;
     flex-shrink: 0;
     position: relative;
+    width: 100%;
   }
   .frame-15 {
     background: #ffffff;
@@ -2312,7 +2304,7 @@
     border-style: solid;
     border-color: var(--color-grey-51, #828282);
     border-width: 2px;
-    padding: 60px 40px 60px 40px;
+    padding: 30px 20px 30px 20px;
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -2334,7 +2326,7 @@
     color: var(--color-grey-51, #828282);
     text-align: center;
     font-family: "Inter-SemiBold", sans-serif;
-    font-size: 32px;
+    font-size: 18px;
     font-weight: 600;
     position: relative;
     align-self: stretch;
@@ -2348,7 +2340,7 @@
     border-style: solid;
     border-color: transparent;
     border-width: 2px;
-    padding: 60px 40px 60px 40px;
+    padding: 30px 20px 30px 20px;
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -2371,7 +2363,7 @@
     color: var(--color-grey-51, #828282);
     text-align: center;
     font-family: "Inter-SemiBold", sans-serif;
-    font-size: 32px;
+    font-size: 18px;
     font-weight: 600;
     position: relative;
     align-self: stretch;
@@ -2387,6 +2379,7 @@
     justify-content: flex-start;
     flex-shrink: 0;
     position: relative;
+    flex-wrap: wrap;
   }
   .input2 {
     background: var(--color-white-solid, #ffffff);
@@ -2402,7 +2395,6 @@
     justify-content: flex-start;
     align-self: stretch;
     flex-shrink: 0;
-    width: 384px;
     position: relative;
     overflow: hidden;
   }
@@ -2410,7 +2402,7 @@
     color: var(--color-grey-46, #767676);
     text-align: left;
     font-family: "Inter-Regular", sans-serif;
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 400;
     position: relative;
     display: flex;
@@ -2435,7 +2427,7 @@
     color: var(--color-white-solid, #ffffff);
     text-align: left;
     font-family: "Inter-Regular", sans-serif;
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 400;
     position: relative;
     display: flex;
@@ -2477,7 +2469,7 @@
     color: var(--color-grey-51, #828282);
     text-align: left;
     font-family: "Inter-Regular", sans-serif;
-    font-size: 24px;
+    font-size: 16px;
     font-weight: 400;
     position: relative;
     flex: 1;
@@ -2490,7 +2482,7 @@
   .button4 {
     background: var(--color-grey-51, #828282);
     border-radius: 30px;
-    padding: 16px 24px 16px 24px;
+    padding: 4px 10px 4px 10px;
     display: flex;
     flex-direction: row;
     gap: 16px;
@@ -2504,7 +2496,7 @@
     color: var(--color-white-solid, #ffffff);
     text-align: right;
     font-family: "Inter-Medium", sans-serif;
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 500;
     position: relative;
     display: flex;
@@ -2527,7 +2519,7 @@
     border-style: solid;
     border-color: var(--color-grey-97, #f7f7f7);
     border-width: 1px;
-    padding: 40px;
+    padding: 20px;
     display: flex;
     flex-direction: row;
     gap: 38px;
@@ -2545,7 +2537,7 @@
     color: var(--color-grey-20, #333333);
     text-align: left;
     font-family: "Inter-Medium", sans-serif;
-    font-size: 36px;
+    font-size: 18px;
     font-weight: 500;
     position: relative;
     align-self: stretch;
@@ -2555,10 +2547,10 @@
     justify-content: flex-start;
   }
   .frame-425 {
-    padding: 60px 0px 80px 0px;
+    padding: 0px 0px 60px 0px;
     display: flex;
     flex-direction: column;
-    gap: 56px;
+    gap: 20px;
     align-items: center;
     justify-content: flex-start;
     flex-shrink: 0;
@@ -2569,7 +2561,7 @@
   }
   .frame-424 {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 22px;
     align-items: stretch;
     justify-content: flex-start;
@@ -2604,7 +2596,7 @@
     display: flex;
     flex-direction: row;
     gap: 10px;
-    align-items: center;
+    align-items: start;
     justify-content: center;
     align-self: stretch;
     flex-shrink: 0;
@@ -2615,7 +2607,7 @@
     color: var(--color-grey-20, #333333);
     text-align: left;
     font-family: "Inter-Medium", sans-serif;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 500;
     position: relative;
     flex: 1;
@@ -2637,7 +2629,7 @@
     color: var(--color-grey-51, #828282);
     text-align: left;
     font-family: "Inter-Regular", sans-serif;
-    font-size: 20px;
+    font-size: 75%;
     font-weight: 400;
     position: relative;
     display: flex;
@@ -2659,7 +2651,7 @@
     color: var(--color-grey-20, #333333);
     text-align: left;
     font-family: "Inter-SemiBold", sans-serif;
-    font-size: 48px;
+    font-size: 20px;
     font-weight: 600;
     position: relative;
     flex: 1;
@@ -2670,7 +2662,7 @@
   .button5 {
     background: var(--color-grey-20, #333333);
     border-radius: 30px;
-    padding: 16px 24px 16px 24px;
+    padding: 4px 10px 4px 10px;
     display: flex;
     flex-direction: row;
     gap: 16px;
@@ -2690,10 +2682,10 @@
     border-style: solid;
     border-color: var(--color-grey-90, #e5e5e5);
     border-width: 1px;
-    padding: 32px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 20px;
     align-items: flex-start;
     justify-content: flex-start;
     flex-shrink: 0;
@@ -2714,7 +2706,7 @@
     color: var(--color-grey-51, #828282);
     text-align: left;
     font-family: "Inter-Regular", sans-serif;
-    font-size: 20px;
+    font-size: 75%;
     font-weight: 400;
     position: relative;
     display: flex;
@@ -2726,7 +2718,7 @@
     color: var(--color-grey-20, #333333);
     text-align: left;
     font-family: "Inter-SemiBold", sans-serif;
-    font-size: 48px;
+    font-size: 20px;
     font-weight: 600;
     position: relative;
     flex: 1;
@@ -2781,7 +2773,7 @@
     color: var(--color-grey-20, #333333);
     text-align: left;
     font-family: "Inter-SemiBold", sans-serif;
-    font-size: 48px;
+    font-size: 20px;
     font-weight: 600;
     position: relative;
     flex: 1;
