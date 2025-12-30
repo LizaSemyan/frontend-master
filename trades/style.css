@@ -870,6 +870,7 @@
     position: relative;
     margin-left: auto;
     margin-right: auto;
+    max-width: 1800px;
   }
   .frame-443 {
     display: flex;
@@ -1490,6 +1491,7 @@
     margin-left: auto;
     margin-right: auto;
     position: relative;
+    max-width: 1800px;
   }
   .heading-22 {
     color: var(--color-grey-13, #222222);

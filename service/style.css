@@ -1099,6 +1099,7 @@
     width: 90%;
     margin-left: auto;
     margin-right: auto;
+    max-width: 1800px;
   }
   .heading-2 {
     color: var(--color-grey-13, #222222);
@@ -1412,6 +1413,7 @@
     justify-content: flex-start;
     flex-shrink: 0;
     position: relative;
+    max-width: 2000px;
   }
   .frame-398 {
     display: flex;
@@ -1626,6 +1628,7 @@
     margin-left: auto;
     margin-right: auto;
     position: relative;
+    max-width: 1800px;
   }
   .heading-22 {
     color: var(--color-grey-20, #333333);
@@ -2009,6 +2012,7 @@
     align-self: stretch;
     flex-shrink: 0;
     position: relative;
+    max-width: 1800px;
   }
   .frame-426 {
     display: flex;
@@ -2566,6 +2570,7 @@
     margin-left: auto;
     margin-right: auto;
     position: relative;
+    max-width: 1800px;
   }
   .frame-424 {
     display: grid;

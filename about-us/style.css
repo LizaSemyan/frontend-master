@@ -1158,6 +1158,7 @@
   }
   .frame-384 {
     width: 90%;
+    max-width: 1800px;
     position: relative;
     margin-left: auto;
     margin-right: auto;

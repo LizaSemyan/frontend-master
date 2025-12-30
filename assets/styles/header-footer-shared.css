@@ -1102,6 +1102,7 @@
     top: 42px;
     display: flex;
     left: 50%;
+    max-width: 1800px;
     transform: translateX(-50%);
     backdrop-filter: blur(7.5px);
   }
